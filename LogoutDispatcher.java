@@ -14,7 +14,7 @@ import java.sql.SQLException;
  * Servlet implementation class LogoutDispatcher
  */
 @WebServlet("/LogoutDispatcher")
-public class DetailsDispatcher extends HttpServlet {
+public class LogoutDispatcher extends HttpServlet {
     private static final long serialVersionUID = 1L;
     
     public LogoutDispatcher() {
