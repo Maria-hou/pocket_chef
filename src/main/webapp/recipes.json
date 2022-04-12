@@ -1,0 +1,48 @@
+[
+    {
+        "id":"1",
+        "name_of_recipe": "Thai Chicken Fried Rice",
+        "image_url": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-202101-thaifriedrice-047-ls-1611613162.jpg?crop=0.668xw:1.00xh;0.153xw,0&resize=640:*",
+        "url": "https://www.delish.com/cooking/recipe-ideas/a35035252/thai-fried-rice-recipe/",
+        "ingredients":["rice", "chicken","red chilis", "garlic", "ginger", "onions", "eggs", "fish sauce"],
+        "filters": ["asian"],
+        "steps":"1. Combine chilis and fish sauce. Season chicken with salt and peper and cook chicken 5 minutes. 2. Cook carrots, garlic, green onions and giner. Add rice and fish sauce. 3. Beat eggs on the side and combine with rice. 4. Serve"
+    },
+    {
+        "id":"2",
+        "name_of_recipe": "Shrimp Scampi",
+        "image_url": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-shrimp-scampi-093021-04-jg-1634050863.jpg?resize=640:*",
+        "url": "https://www.delish.com/cooking/recipe-ideas/a37612604/classic-shrimp-scampi-recipe/",
+        "ingredients":["shrimp", "garlic", "butter", "bread crumbs", "lemon", "white wine"],
+        "filters": ["pescatarian"],
+        "steps":"1. Toss shrimp and garlic together and season with salt and pepper. 2. Melt butter on small skillet and cook garlic until fragrant. Stir in breadcrumbs until golden brown and add lemon zest and salt. 4. Cook shrimp until pink and add white wine, lemon juice and zest. Cook until reduced by about a third. 5. Serve"
+    },
+    {
+        "id":"3",
+        "name_of_recipe": "Instant Pot Lentil Soup",
+        "image_url": "https://cdn.loveandlemons.com/wp-content/uploads/2021/10/instant-pot-lentil-soup-1024x687.jpg",
+        "url": "https://www.loveandlemons.com/instant-pot-lentil-soup/#wprm-recipe-container-60367",
+        "ingredients":["onion", "celery", "carrot", "kale", "garlic", "canned tomatoes", " lentils", "vegetable broth"],
+        "filters": ["vegetarian"],
+        "steps":"1. Add onion, celery and carrots to your Instant Pot and cook for 8 minutes. 2. Add kale, farlic, tomatoes, lentils, and any spices to the pot and cook on high for 15 minutes. 3. Let Instant Pot relase pressure naturally: about 20-30 minutes. Then serve."
+    },
+    {
+        "id":"4",
+        "name_of_recipe": "Easy Pesto Pasta",
+        "image_url": "https://cdn.loveandlemons.com/wp-content/uploads/2018/01/pesto-pasta-recipe.jpg",
+        "url": "https://www.loveandlemons.com/pesto-pasta/",
+        "ingredients":["pesto", "pasta"],
+        "filters": ["vegetarian"],
+        "steps":"1. Cook pasta according to package. 2. Drain pasta and reserve 1/4 cup of pasta water. 3. Add pasta to pesto and pasta water. Mix thoroughly. 4. Add desired spices and serve. "
+    },
+    {
+        "id":"5",
+        "name_of_recipe": "One Pan Lemon Garlic Salmon and Asparagus",
+        "image_url": "https://gimmedelicious.com/wp-content/uploads/2016/03/lemon-garlic-salmon-asparagusi-21-of-23.jpg",
+        "url": "https://www.loveandlemons.com/pesto-pasta/",
+        "ingredients":["salmon", "asparagus", "lemon", "garlic"],
+        "filters": ["pescatarian"],
+        "steps":"1. Heat up butter and oil. When hot, add in salmon and asparagus. Season with desired seasoning and cook for 3-4 minutes on each side. 2. Add garlic and lemon zest. Squueze lemon juice on the salmon and serve. "
+    }
+
+]
