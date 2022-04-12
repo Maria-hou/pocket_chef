@@ -38,43 +38,43 @@ public class LoginDispatcher extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		//get an instance of JDBC driver
-//		Connection conn = null;
+		Connection conn = null;
 		
-//		try {
-//			Class.forName("com.mysql.cj.jdbc.Driver");
-//			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/SalEatsUsers", Constant.DBUserName, Constant.DBPassword);
-//			String sql = "SELECT * FROM Users WHERE email=? AND pass=?";
-//			PreparedStatement ps = conn.prepareStatement(sql);
-//			ps.setString(1, email);
-//			ps.setString(2, password);
-//			ResultSet rs = ps.executeQuery();
-//			//check if email and pass are present in database
-//			if(rs.next())
-//			{
-//				if(rs.getRow() > 0)
-//				{
-//					request.setAttribute("invalid", "false");
-//					invalid = false;
-//					//find user's name
-//					name = rs.getString(1);
-//				}
-//				else
-//				{
-//					request.setAttribute("invalid", "true");
-//					invalid = true;
-//					error = "invalid email or password ";
-//				}
-//			}
-//			else
-//			{
-//				request.setAttribute("invalid", "true");
-//				invalid = true;
-//				error = "invalid email or password ";
-//			}
-//			
-//		} catch (ClassNotFoundException | SQLException e) {
-//			e.printStackTrace();
-//		}
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/finalproject", Constant.DBUserName, Constant.DBPassword);
+			String sql = "SELECT * FROM user_info WHERE email=? AND password=?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, email);
+			ps.setString(2, password);
+			ResultSet rs = ps.executeQuery();
+			//check if email and pass are present in database
+			if(rs.next())
+			{
+				if(rs.getRow() > 0)
+				{
+					request.setAttribute("invalid", "false");
+					invalid = false;
+					//find user's name
+					name = rs.getString(2);
+				}
+				else
+				{
+					request.setAttribute("invalid", "true");
+					invalid = true;
+					error = "invalid email or password ";
+				}
+			}
+			else
+			{
+				request.setAttribute("invalid", "true");
+				invalid = true;
+				error = "invalid email or password ";
+			}
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
 		
 		
 		if (email.contentEquals(""))
@@ -96,7 +96,7 @@ public class LoginDispatcher extends HttpServlet {
 			Cookie cookie2=new Cookie("email", email);
 			response.addCookie(cookie1);
 			response.addCookie(cookie2);
-			response.sendRedirect("index.html");
+			response.sendRedirect("index.jsp");
 		}
 		else
 		{
