@@ -36,13 +36,57 @@
         "steps":"1. Cook pasta according to package. 2. Drain pasta and reserve 1/4 cup of pasta water. 3. Add pasta to pesto and pasta water. Mix thoroughly. 4. Add desired spices and serve. "
     },
     {
-        "id":"5",
-        "name_of_recipe": "One Pan Lemon Garlic Salmon and Asparagus",
-        "image_url": "https://gimmedelicious.com/wp-content/uploads/2016/03/lemon-garlic-salmon-asparagusi-21-of-23.jpg",
-        "url": "https://www.loveandlemons.com/pesto-pasta/",
-        "ingredients":["salmon", "asparagus", "lemon", "garlic"],
-        "filters": ["pescatarian"],
-        "steps":"1. Heat up butter and oil. When hot, add in salmon and asparagus. Season with desired seasoning and cook for 3-4 minutes on each side. 2. Add garlic and lemon zest. Squueze lemon juice on the salmon and serve. "
+        "id":"28",
+        "name_of_recipe": "Russian Pelmeni (Meat Dumplings)",
+        "image_url": "https://cdn.loveandlemons.com/wp-content/uploads/2020/12/steamed-dumplings-recipe.jpg",
+        "url": "https://momsdish.com/recipe/76/pelmeni",
+        "ingredients":["milk", "flour", "beef", "garlic", "pork", "water", "eggs", "salt"],
+        "filters": ["carnivore", "russian"],
+        "steps":"1. Add water, flour, eggs, salt to a bowl. Mix it. 2. Add garlic and salt to beef and pork mix. 3. Make dumplings and put the meat mixture there. Ready! "
+    },
+    {
+        "id":"29",
+        "name_of_recipe": "Napolean Cake",
+        "image_url": "https://www.thespruceeats.com/thmb/Eq2_5VwAHLyhHecSQ93uPkqkoZk=/940x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/russian-napoleon-cake-napolyeon-tort-recipe-1137297-hero-01-32a3990d99ff4cf5a1d83db60deb98ef.jpg",
+        "url": "https://www.thespruceeats.com/russian-napoleon-cake-napolyeon-tort-recipe-1137297",
+        "ingredients":["milk", "flour", "sugar", "sour cream","butter", "eggs"],
+        "filters": [],
+        "steps":"1. Beat together the butter and sugar together until creamy.Fold in the sour cream, stiffly beaten egg whites, vodka, and salt. 2. Bake each circle of pastry until golden brown, about 6 to 10 minutes. If dough bubbles as it cooks, pierce with a fork. 3. Pour the milk into a large saucepan and heat, but do not boil. In a large bowl, beat together the egg yolks, egg white, and sugar until creamy. 4. Add the butter and vanilla and stir until smooth. 5. Assemble the Torte."
+    },
+    {
+        "id":"30",
+        "name_of_recipe": "Borscht",
+        "image_url": "https://natashaskitchen.com/wp-content/uploads/2018/10/Borscht-Recipe-3.jpg",
+        "url": "https://natashaskitchen.com/classic-russian-borscht-recipe/",
+        "ingredients":["beet", "water", "oil", "chicken","potato", "carrot", "onion"],
+        "filters": ["russian"],
+        "steps":"1. Slice vegetables. 2. Heat a large soup pot (5 1/2 Qt or larger) over medium/high heat and add 2 Tbsp olive oil. Add grated beets and sauté 10 minutes, stirring occasionally until beets are softened. 3. Add sliced potatoes and sliced carrots then cook for 10-15 minutes or until easily pierced with a fork. 4. While potatoes are cooking, place a large skillet over medium/high heat and add 2 Tbsp oil. Add chopped onion, celery and bell pepper. Saute stirring occasionally until softened and lightly golden (7-8 minutes). Add 4 Tbsp Ketchup and stir fry 30 seconds then transfer to the soup pot to continue cooking with the potatoes. 5. When potatoes and carrots reach desired softness, add 1 can of beans with their juice, 2 bay leaves, 2-3 Tbsp white vinegar, 1 tsp salt, 1/4 tsp black pepper, 1 pressed garlic clove, and 3 Tbsp chopped dill. Simmer for an additional 2-3 minutes and add more salt and vinegar to taste."
+    },
+    {
+        "id":"31",
+        "name_of_recipe": "Banana Bread",
+        "image_url": "https://natashaskitchen.com/wp-content/uploads/2018/10/Borscht-Recipe-3.jpg",
+        "url": "https://natashaskitchen.com/classic-russian-borscht-recipe/",
+        "ingredients":["flour", "sugar", "salt", "baking soda", "vanilla extract", "butter", "eggs", "bananas"],
+        "filters": ["american", "vegetarian"],
+        "steps": ["1. In the mixing bowl, cream together butter and sugar. 2. Mix in mashed bananas and eggs. 3. Whisk together dry ingredients: flour, salt, and baking soda and add to batter. 4. Stir in vanilla, walnuts, and raisins, transfer to prepared loaf pan and bake."]
+    },
+    {
+        "id":"32",
+        "name_of_recipe": "Hot Creamy Cocoa",
+        "image_url": "https://img.buzzfeed.com/video-api-prod/assets/89368e479e5a49eca1295227abdd3a95/Hot_Chocolate_C.jpg",
+        "url": "https://www.allrecipes.com/recipe/20211/creamy-hot-cocoa/",
+        "ingredients":["cocoa", "sugar", "salt", "half and half", "milk"],
+        "filters": ["american", "vegetarian"],
+        "steps": "1. Combine the cocoa, sugar and pinch of salt in a saucepan. 2. Blend in the boiling water. Bring this mixture to an easy boil while you stir. Simmer and stir for about 2 minutes. Watch that it doesn't scorch. 3. Stir in 3 1/2 cups of milk and heat until very hot, but do not boil! Remove from heat and add vanilla. Divide between 4 mugs. 4. Add the cream to the mugs of cocoa to cool it to drinking temperature."
+    },
+    {
+        "id":"32",
+        "name_of_recipe": "Vanilla Ice Cream",
+        "image_url": "https://img.buzzfeed.com/video-api-prod/assets/89368e479e5a49eca1295227abdd3a95/Hot_Chocolate_C.jpg",
+        "url": "https://www.allrecipes.com/recipe/20211/creamy-hot-cocoa/",
+        "ingredients":["heavy cream", "sugar", "salt", "half and half"],
+        "filters": ["american", "vegetarian"],
+        "steps": "1. In a small pot, simmer heavy cream, milk, sugar and salt until sugar completely dissolves, about 5 minutes. Remove pot from heat. 2. In a separate bowl, whisk yolks. Whisking constantly, slowly whisk about a third of the hot cream into the yolks, then whisk the yolk mixture back into the pot with the cream. 3. Return pot to medium-low heat and gently cook until mixture is thick enough to coat the back of a spoon (about 170 degrees on an instant-read thermometer)."
     }
-
 ]
