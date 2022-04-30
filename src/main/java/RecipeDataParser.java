@@ -31,7 +31,7 @@ public class RecipeDataParser {
             return;
         }
         
-        String recipes = "INSERT INTO recipes (id, name_of_recipe, ingredients, categories, instructions) VALUES (?, ?, ?, ?, ?)";
+        String recipes = "INSERT INTO recipes (id, name_of_recipe, ingredients, image_url, url, categories, instructions) VALUES (?, ?, ?, ?, ?, ?, ?)";
         
         Connection conn;
         PreparedStatement sql = null;
@@ -79,9 +79,11 @@ public class RecipeDataParser {
         	try {
         		sql.setString(1, recipe.getId());
         		sql.setString(2, recipe.getNameOfRecipe());
-        		sql.setString(3, ing);
-        		sql.setString(4, filt);
-        		sql.setString(5, recipe.getSteps());
+        		sql.setString(3, recipe.getImageUrl());
+        		sql.setString(4, recipe.getUrl());
+        		sql.setString(5, ing);
+        		sql.setString(6, filt);
+        		sql.setString(7, recipe.getSteps());
         		
         		int row = sql.executeUpdate(); //the number of rows affected
         	} catch (SQLException e) {
@@ -95,24 +97,26 @@ public class RecipeDataParser {
     public static Recipe getRecipe(String id) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String sql = "SELECT id, name_of_recipe, ingredients, categories, instructions "
+            String sql = "SELECT id, name_of_recipe, image_url, url, ingredients, categories, instructions "
             		+ "FROM recipes "
             		+ "WHERE id = '" + id + "';";
             
             Connection conn = DriverManager.getConnection(Constant.DBUrl, Constant.DBUserName, Constant.DBPassword);
 			Statement s = conn.createStatement();
 			ResultSet rs = s.executeQuery(sql);
-			String rest_id = null, name_of_recipe = null, ingredients = null, categories = null, instructions = null;
+			String rest_id = null, name_of_recipe = null, image_url = null, url = null, ingredients = null, categories = null, instructions = null;
 			
 			if(rs.next()) {
 				rest_id = rs.getString("id");
 				name_of_recipe = rs.getString("name_of_recipe");
+				image_url = rs.getString("image_url");
+				url = rs.getString("url");
 				ingredients = rs.getString("ingredients");
 				categories = rs.getString("categories");
 				instructions = rs.getString("instructions"); 
 			}
 			
-			Recipe recipe = new Recipe(rest_id, name_of_recipe, ingredients, categories, instructions);
+			Recipe recipe = new Recipe(rest_id, name_of_recipe, image_url, url, ingredients, categories, instructions);
 			return recipe;
 
         } catch (ClassNotFoundException e) {
@@ -120,7 +124,7 @@ public class RecipeDataParser {
         } catch (SQLException e) {
 			// TODO Auto-generated catch block
         	System.out.println(e.getMessage());
-        	System.out.println("could not find a restaurant in getBusiness function");
+        	System.out.println("could not find a recipe in getRecipe function");
 		}
         //TODO return business based on id
         return null;
@@ -132,51 +136,37 @@ public class RecipeDataParser {
      * @param searchType search in category or name
      * @return the list of business matching the criteria
      */
-    public static ArrayList<Recipe> getRecipes(String keyWord, String sort, String searchType) {
+    public static ArrayList<Recipe> getRecipes(String ingredients, String filters) {
         ArrayList<Recipe> recipes = new ArrayList<Recipe>();
         String sql = "";
         
-        System.out.println(keyWord);
-        System.out.println(sort);
-        System.out.println(searchType);
-        //sort = sort.toLowerCase();
-        if(sort.equals("price")) {sort = "estimated_price";}
-        else if (sort.equals("review")) {sort = "review_count";}
+        String[] ing_array = ingredients.split(" ");
+        String[] filt_array = filters.split(" ");
         
-        if(searchType.equals("name")) {
-        	System.out.println("in name..");
-        	if(sort.equals("estimated_price")) {
-        		System.out.println("in est price..");
-        		sql = "SELECT r.restaurant_id FROM Restaurant r, Restaurant_details rd WHERE r.details_id = rd.details_id AND r.restaurant_name LIKE '%" + keyWord + "%' ORDER BY rd." + sort + ";";
-        	}
-        	else {
-        		System.out.println("in review count..");
-        		sql = "SELECT r.restaurant_id FROM Restaurant r, Rating_details rd WHERE r.rating_id = rd.rating_id AND r.restaurant_name LIKE '%" + keyWord + "%' ORDER BY rd." + sort + " desc;";
-        	}
+        sql = "SELECT r.id FROM Recipes r WHERE r.ingredients LIKE '%" + ing_array[0] + "%' ";
+        
+        for (int i=1; i<ing_array.length; i++) {
+        	sql += "OR r.ingredients LIKE '%" + ing_array[i] + "%' ";
         }
-        else {
-        	System.out.println("category..");
-        	if(sort.equals("estimated_price")) {
-        		System.out.println("in est price..");
-        		sql = "SELECT r.restaurant_id FROM Restaurant r, Restaurant_details rd, Category c WHERE r.details_id = rd.details_id AND r.restaurant_id = c.restaurant_id AND c.category_name LIKE '%" + keyWord + "%' ORDER BY rd." + sort + ";";
-        	}
-        	else {
-        		System.out.println("in review count..");
-        		sql = "SELECT r.restaurant_id FROM Restaurant r, Rating_details rd, Category c WHERE r.rating_id = rd.rating_id AND r.restaurant_id = c.restaurant_id AND c.category_name LIKE '%" + keyWord + "%' ORDER BY rd." + sort + " desc;";
-        	}
+        
+        sql += "AND r.filters LIKE '%" + filt_array[0] + "%' ";
+        for (int i=1; i<filt_array.length; i++) {
+        	sql += "OR r.filters LIKE '%" + filt_array[i] + "%' ";
         }
+        
+        sql += ";";
         
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection(Constant.url, Constant.DBUserName, Constant.DBPassword);
+            Connection conn = DriverManager.getConnection(Constant.DBUrl, Constant.DBUserName, Constant.DBPassword);
 			Statement s = conn.createStatement();
 			ResultSet rs = s.executeQuery(sql);
 			
 			if(rs.next()) {
 				while(rs.next()) {
-					String rest_id = rs.getString("restaurant_id");
+					String id = rs.getString("id");
 					//System.out.println(rest_id);
-					businesses.add(getBusiness(rest_id));
+					recipes.add(getRecipe(id));
 				}
 			}else {
 				return null;
@@ -187,13 +177,13 @@ public class RecipeDataParser {
         } catch (SQLException e) {
 			// TODO Auto-generated catch block
         	System.out.println(e.getMessage());
-        	System.out.println("could not find restaurants in getBusinesses function");
+        	System.out.println("could not find recipes in getRecipes function");
 		}
         //TODO get list of business based on the param
-        if(businesses.isEmpty()) {
-        	System.out.println("did not find any restaurants");
+        if(recipes.isEmpty()) {
+        	System.out.println("did not find any recipes");
         }
-        return businesses;
+        return recipes;
 
     }
 }
