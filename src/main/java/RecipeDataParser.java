@@ -86,7 +86,7 @@ public class RecipeDataParser {
         	} catch (SQLException e) {
     			// TODO Auto-generated catch block
         		System.out.println(e.getMessage());
-    			System.out.println("could not add the restaurant details");
+    			System.out.println("could not add the recipe details");
     		}
         }
     }

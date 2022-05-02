@@ -28,6 +28,7 @@ public class SearchDispatcher extends HttpServlet {
         ServletContext servletContext = getServletContext();
 
         InputStream stream = RecipeDataParser.class.getClassLoader().getResourceAsStream("/recipes.json");
+        System.out.println("stream part");
         String json = null;
         try {
         	json = new String(stream.readAllBytes(), StandardCharsets.UTF_8);
