@@ -1,10 +1,5 @@
 import com.google.gson.*;
 
-import Util.Business;
-import Util.Businesses;
-import Util.Category;
-import Util.Constant;
-
 import java.lang.reflect.Type;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -30,8 +25,8 @@ public class RecipeDataParser {
         if (ready) {
             return;
         }
-        
-        String recipes = "INSERT INTO recipes (id, name_of_recipe, ingredients, image_url, url, categories, instructions) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        System.out.println("im hereeeeeeeeeeeeeeee");
+        String recipes = "INSERT INTO recipes (id, name_of_recipe, image_url, url, ingredients, categories, instructions) VALUES (?, ?, ?, ?, ?, ?, ?)";
         
         Connection conn;
         PreparedStatement sql = null;
@@ -47,6 +42,8 @@ public class RecipeDataParser {
         } catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}catch (Exception e) {
+			System.out.println(e.getMessage());
 		}
         ready = true;
         
@@ -189,10 +186,10 @@ public class RecipeDataParser {
 }
 
 //Code adapted from https://stackoverflow.com/questions/23070298/get-nested-json-object-with-gson-using-retrofit
-class BusinessDeserializer implements JsonDeserializer<Recipes> {
+class BusinessDeserializer implements JsonDeserializer<Recipe[]> {
     @Override
-    public Recipes deserialize(JsonElement je, Type type, JsonDeserializationContext jdc) throws JsonParseException {
+    public Recipe[] deserialize(JsonElement je, Type type, JsonDeserializationContext jdc) throws JsonParseException {
         JsonElement content = je.getAsJsonObject();
-        return new Gson().fromJson(content, Recipes.class);
+        return new Gson().fromJson(content, Recipe[].class);
     }
 }
