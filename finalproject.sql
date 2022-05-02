@@ -4,6 +4,8 @@ CREATE DATABASE finalproject;
 CREATE TABLE finalproject.`recipes` (
    `id` varchar(45) NOT NULL,
    `name_of_recipe` varchar(75) DEFAULT NULL,
+   `image_url` varchar(255) DEFAULT NULL,
+   `url` varchar(255) DEFAULT NULL,
    `ingredients` varchar(1000) DEFAULT NULL,
    `categories` varchar(500) DEFAULT NULL,
    `instructions` varchar(2000) DEFAULT NULL,

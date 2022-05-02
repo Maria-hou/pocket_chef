@@ -1,0 +1,92 @@
+[
+    {
+        "id":"1",
+        "name_of_recipe": "Thai Chicken Fried Rice",
+        "image_url": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-202101-thaifriedrice-047-ls-1611613162.jpg?crop=0.668xw:1.00xh;0.153xw,0&resize=640:*",
+        "url": "https://www.delish.com/cooking/recipe-ideas/a35035252/thai-fried-rice-recipe/",
+        "ingredients":["rice", "chicken","red chilis", "garlic", "ginger", "onions", "eggs", "fish sauce"],
+        "filters": ["asian"],
+        "steps":"1. Combine chilis and fish sauce. Season chicken with salt and peper and cook chicken 5 minutes. 2. Cook carrots, garlic, green onions and giner. Add rice and fish sauce. 3. Beat eggs on the side and combine with rice. 4. Serve"
+    },
+    {
+        "id":"2",
+        "name_of_recipe": "Shrimp Scampi",
+        "image_url": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-shrimp-scampi-093021-04-jg-1634050863.jpg?resize=640:*",
+        "url": "https://www.delish.com/cooking/recipe-ideas/a37612604/classic-shrimp-scampi-recipe/",
+        "ingredients":["shrimp", "garlic", "butter", "bread crumbs", "lemon", "white wine"],
+        "filters": ["pescatarian"],
+        "steps":"1. Toss shrimp and garlic together and season with salt and pepper. 2. Melt butter on small skillet and cook garlic until fragrant. Stir in breadcrumbs until golden brown and add lemon zest and salt. 4. Cook shrimp until pink and add white wine, lemon juice and zest. Cook until reduced by about a third. 5. Serve"
+    },
+    {
+        "id":"3",
+        "name_of_recipe": "Instant Pot Lentil Soup",
+        "image_url": "https://cdn.loveandlemons.com/wp-content/uploads/2021/10/instant-pot-lentil-soup-1024x687.jpg",
+        "url": "https://www.loveandlemons.com/instant-pot-lentil-soup/#wprm-recipe-container-60367",
+        "ingredients":["onion", "celery", "carrot", "kale", "garlic", "canned tomatoes", " lentils", "vegetable broth"],
+        "filters": ["vegetarian"],
+        "steps":"1. Add onion, celery and carrots to your Instant Pot and cook for 8 minutes. 2. Add kale, farlic, tomatoes, lentils, and any spices to the pot and cook on high for 15 minutes. 3. Let Instant Pot relase pressure naturally: about 20-30 minutes. Then serve."
+    },
+    {
+        "id":"4",
+        "name_of_recipe": "Easy Pesto Pasta",
+        "image_url": "https://cdn.loveandlemons.com/wp-content/uploads/2018/01/pesto-pasta-recipe.jpg",
+        "url": "https://www.loveandlemons.com/pesto-pasta/",
+        "ingredients":["pesto", "pasta"],
+        "filters": ["vegetarian"],
+        "steps":"1. Cook pasta according to package. 2. Drain pasta and reserve 1/4 cup of pasta water. 3. Add pasta to pesto and pasta water. Mix thoroughly. 4. Add desired spices and serve. "
+    },
+    {
+        "id":"28",
+        "name_of_recipe": "Russian Pelmeni (Meat Dumplings)",
+        "image_url": "https://cdn.loveandlemons.com/wp-content/uploads/2020/12/steamed-dumplings-recipe.jpg",
+        "url": "https://momsdish.com/recipe/76/pelmeni",
+        "ingredients":["milk", "flour", "beef", "garlic", "pork", "water", "eggs", "salt"],
+        "filters": ["carnivore", "russian"],
+        "steps":"1. Add water, flour, eggs, salt to a bowl. Mix it. 2. Add garlic and salt to beef and pork mix. 3. Make dumplings and put the meat mixture there. Ready! "
+    },
+    {
+        "id":"29",
+        "name_of_recipe": "Napolean Cake",
+        "image_url": "https://www.thespruceeats.com/thmb/Eq2_5VwAHLyhHecSQ93uPkqkoZk=/940x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/russian-napoleon-cake-napolyeon-tort-recipe-1137297-hero-01-32a3990d99ff4cf5a1d83db60deb98ef.jpg",
+        "url": "https://www.thespruceeats.com/russian-napoleon-cake-napolyeon-tort-recipe-1137297",
+        "ingredients":["milk", "flour", "sugar", "sour cream","butter", "eggs"],
+        "filters": [],
+        "steps":"1. Beat together the butter and sugar together until creamy.Fold in the sour cream, stiffly beaten egg whites, vodka, and salt. 2. Bake each circle of pastry until golden brown, about 6 to 10 minutes. If dough bubbles as it cooks, pierce with a fork. 3. Pour the milk into a large saucepan and heat, but do not boil. In a large bowl, beat together the egg yolks, egg white, and sugar until creamy. 4. Add the butter and vanilla and stir until smooth. 5. Assemble the Torte."
+    },
+    {
+        "id":"30",
+        "name_of_recipe": "Borscht",
+        "image_url": "https://natashaskitchen.com/wp-content/uploads/2018/10/Borscht-Recipe-3.jpg",
+        "url": "https://natashaskitchen.com/classic-russian-borscht-recipe/",
+        "ingredients":["beet", "water", "oil", "chicken","potato", "carrot", "onion"],
+        "filters": ["russian"],
+        "steps":"1. Slice vegetables. 2. Heat a large soup pot (5 1/2 Qt or larger) over medium/high heat and add 2 Tbsp olive oil. Add grated beets and sauté 10 minutes, stirring occasionally until beets are softened. 3. Add sliced potatoes and sliced carrots then cook for 10-15 minutes or until easily pierced with a fork. 4. While potatoes are cooking, place a large skillet over medium/high heat and add 2 Tbsp oil. Add chopped onion, celery and bell pepper. Saute stirring occasionally until softened and lightly golden (7-8 minutes). Add 4 Tbsp Ketchup and stir fry 30 seconds then transfer to the soup pot to continue cooking with the potatoes. 5. When potatoes and carrots reach desired softness, add 1 can of beans with their juice, 2 bay leaves, 2-3 Tbsp white vinegar, 1 tsp salt, 1/4 tsp black pepper, 1 pressed garlic clove, and 3 Tbsp chopped dill. Simmer for an additional 2-3 minutes and add more salt and vinegar to taste."
+    },
+    {
+        "id":"31",
+        "name_of_recipe": "Banana Bread",
+        "image_url": "https://natashaskitchen.com/wp-content/uploads/2018/10/Borscht-Recipe-3.jpg",
+        "url": "https://natashaskitchen.com/classic-russian-borscht-recipe/",
+        "ingredients":["flour", "sugar", "salt", "baking soda", "vanilla extract", "butter", "eggs", "bananas"],
+        "filters": ["american", "vegetarian"],
+        "steps": ["1. In the mixing bowl, cream together butter and sugar. 2. Mix in mashed bananas and eggs. 3. Whisk together dry ingredients: flour, salt, and baking soda and add to batter. 4. Stir in vanilla, walnuts, and raisins, transfer to prepared loaf pan and bake."]
+    },
+    {
+        "id":"32",
+        "name_of_recipe": "Hot Creamy Cocoa",
+        "image_url": "https://img.buzzfeed.com/video-api-prod/assets/89368e479e5a49eca1295227abdd3a95/Hot_Chocolate_C.jpg",
+        "url": "https://www.allrecipes.com/recipe/20211/creamy-hot-cocoa/",
+        "ingredients":["cocoa", "sugar", "salt", "half and half", "milk"],
+        "filters": ["american", "vegetarian"],
+        "steps": "1. Combine the cocoa, sugar and pinch of salt in a saucepan. 2. Blend in the boiling water. Bring this mixture to an easy boil while you stir. Simmer and stir for about 2 minutes. Watch that it doesn't scorch. 3. Stir in 3 1/2 cups of milk and heat until very hot, but do not boil! Remove from heat and add vanilla. Divide between 4 mugs. 4. Add the cream to the mugs of cocoa to cool it to drinking temperature."
+    },
+    {
+        "id":"32",
+        "name_of_recipe": "Vanilla Ice Cream",
+        "image_url": "https://img.buzzfeed.com/video-api-prod/assets/89368e479e5a49eca1295227abdd3a95/Hot_Chocolate_C.jpg",
+        "url": "https://www.allrecipes.com/recipe/20211/creamy-hot-cocoa/",
+        "ingredients":["heavy cream", "sugar", "salt", "half and half"],
+        "filters": ["american", "vegetarian"],
+        "steps": "1. In a small pot, simmer heavy cream, milk, sugar and salt until sugar completely dissolves, about 5 minutes. Remove pot from heat. 2. In a separate bowl, whisk yolks. Whisking constantly, slowly whisk about a third of the hot cream into the yolks, then whisk the yolk mixture back into the pot with the cream. 3. Return pot to medium-low heat and gently cook until mixture is thick enough to coat the back of a spoon (about 170 degrees on an instant-read thermometer)."
+    }
+]
