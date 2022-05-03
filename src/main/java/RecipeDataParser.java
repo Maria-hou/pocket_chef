@@ -65,11 +65,11 @@ public class RecipeDataParser {
         	String ing = "", filt = "";
         	
         	for(int j=0; j<ingredients.size(); j++) {
-        		ing += ingredients.get(j);
+        		ing += ingredients.get(j) + " ";
         	}
         	
         	for(int k=0; k<filters.size(); k++) {
-        		filt += filters.get(k);
+        		filt += filters.get(k) + " ";
         	}
         	
         	// add the recipe
@@ -94,9 +94,7 @@ public class RecipeDataParser {
     public static Recipe getRecipe(String id) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String sql = "SELECT id, name_of_recipe, image_url, url, ingredients, categories, instructions "
-            		+ "FROM recipes "
-            		+ "WHERE id = '" + id + "';";
+            String sql = "SELECT id, name_of_recipe, image_url, url, ingredients, categories, instructions FROM finalproject.recipes WHERE id = '" + id + "';";
             
             Connection conn = DriverManager.getConnection(Constant.DBUrl, Constant.DBUserName, Constant.DBPassword);
 			Statement s = conn.createStatement();
@@ -138,20 +136,23 @@ public class RecipeDataParser {
         String sql = "";
         
         String[] ing_array = ingredients.split(" ");
-        String[] filt_array = filters.split(" ");
+        String[] filt_array = new String[] {""};
+        if(filters != null) {
+        	filt_array = filters.split(" ");
+        }
         
-        sql = "SELECT r.id FROM Recipes r WHERE r.ingredients LIKE '%" + ing_array[0] + "%' ";
+        sql = "SELECT r.id FROM finalproject.recipes r WHERE (r.ingredients LIKE '%" + ing_array[0] + "%' ";
         
-        for (int i=1; i<ing_array.length; i++) {
+        for (int i=1; i<ing_array.length-1; i++) {
         	sql += "OR r.ingredients LIKE '%" + ing_array[i] + "%' ";
         }
+        sql += "OR r.ingredients LIKE '%" + ing_array[ing_array.length-1] + "%') ";
         
-        sql += "AND r.filters LIKE '%" + filt_array[0] + "%' ";
-        for (int i=1; i<filt_array.length; i++) {
-        	sql += "OR r.filters LIKE '%" + filt_array[i] + "%' ";
+        sql += "AND (r.categories LIKE '%" + filt_array[0] + "%' ";
+        for (int i=1; i<filt_array.length-1; i++) {
+        	sql += "OR r.categories LIKE '%" + filt_array[i] + "%' ";
         }
-        
-        sql += ";";
+        sql += "OR r.categories LIKE '%" + filt_array[filt_array.length-1] + "%');";
         
         try {
             Class.forName("com.mysql.jdbc.Driver");

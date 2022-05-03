@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * Servlet implementation class LoginDispatcher
@@ -52,6 +53,11 @@ public class SearchDispatcher extends HttpServlet {
     	
     	String ingredients = request.getParameter("ingredients");
     	String filters = request.getParameter("filters");
+    	
+    	ArrayList<Recipe> ex = RecipeDataParser.getRecipes(ingredients, filters);
+    	for(int i=0; i<ex.size(); i++) {
+    		System.out.println(ex.get(i).getId());
+    	}
     	
     	Cookie cookie_ing = new Cookie("ingredients", ingredients);
     	cookie_ing.setMaxAge(60*60);
