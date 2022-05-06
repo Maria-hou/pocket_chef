@@ -133,7 +133,7 @@ public class RegisterDispatcher extends HttpServlet {
 			response.addCookie(cookie2);
 			try {
 				Class.forName("com.mysql.cj.jdbc.Driver");
-				conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/finalproject", Constant.DBUserName, Constant.DBPassword);
+				conn = DriverManager.getConnection(Constant.DBUrl, Constant.DBUserName, Constant.DBPassword);
 				PreparedStatement psEmail = conn.prepareStatement(sql);
 				psEmail.setString(1, email);
 				ResultSet rsEmail = psEmail.executeQuery();

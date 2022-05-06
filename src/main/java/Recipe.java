@@ -9,6 +9,29 @@ public class Recipe {
 		// TODO Auto-generated constructor stub
 	}
 	
+	public Recipe(String id_, String nameOfRecipe_, String imageUrl_, String url_, String products_, String categories_, String instructions_) {
+		id = id_;
+		nameOfRecipe = nameOfRecipe_;
+		url = url_;
+		products = products_;
+		categories = categories_;
+		instructions = instructions_;
+	}
+	
+	String products, categories, instructions;
+	
+	public String getProducts() {
+		return products;
+	}
+	
+	public String getCategories() {
+		return categories;
+	}
+	
+	public String getInstructions() {
+		return instructions;
+	}
+	
 	@SerializedName("id")
 	@Expose
 	private String id;
