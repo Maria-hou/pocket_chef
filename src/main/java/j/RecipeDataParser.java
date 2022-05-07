@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * A class that pretends to be the Yelp API
@@ -205,13 +206,16 @@ public class RecipeDataParser {
         //TODO get list of business based on the param
         if(recipes.isEmpty()) {
         	System.out.println("did not find any recipes");
+        	return null;
         }
         return recipes;
 
     }
     
     public static void insertPastRecipe(String recipe_id, String user_email) {
-    	String stmt = "INSERT INTO past_recipes (recipe_id, user_email) VALUES (?, ?)";
+    	String stmt = "INSERT INTO past_recipes (id, recipe_id, user_email) VALUES (?, ?, ?)";
+    	Random rand = new Random();
+    	int id = rand.nextInt(500);
     	
     	 Connection conn;
          PreparedStatement sql = null;
@@ -222,8 +226,9 @@ public class RecipeDataParser {
              
          	conn = DriverManager.getConnection(Constant.DBUrl, Constant.DBUserName, Constant.DBPassword);
  			sql = conn.prepareStatement(stmt);
- 			sql.setString(1, recipe_id);
-    		sql.setString(2, user_email);
+ 			sql.setInt(1, id);
+ 			sql.setString(2, recipe_id);
+    		sql.setString(3, user_email);
     		
     		int row = sql.executeUpdate(); //the number of rows affected
          } catch (ClassNotFoundException e) {
