@@ -36,13 +36,13 @@
 						}
 					}
 				%>
-				<%if(cookies.length > 1 && cookies[nameIndex].getValue() != null) { 
+				<%if(cookies.length > 1 && cookies[nameIndex].getValue() != null && nameIndex !=0) { 
 				  	String name = cookies[nameIndex].getValue();
 				  	name = name.replace("*", " ");%>
 				  	
 				  		<p class="nav-item my-auto" style="color:#FFFFFF; font-family: 'Inter', sans-serif;">Hi, <%= name %></p>
 				  	
-				<%loggedin=true;}%>
+				<%loggedin=true;} else { loggedin = false;}%>
 				
 			
 				<%if(!loggedin) { %>
