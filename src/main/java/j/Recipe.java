@@ -13,6 +13,7 @@ public class Recipe {
 	public Recipe(String id_, String nameOfRecipe_, String imageUrl_, String url_, String products_, String categories_, String instructions_) {
 		id = id_;
 		nameOfRecipe = nameOfRecipe_;
+		imageUrl = imageUrl_;
 		url = url_;
 		products = products_;
 		categories = categories_;
