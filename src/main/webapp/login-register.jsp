@@ -38,10 +38,10 @@
             
 		            <form id="login" action="LoginDispatcher" method="POST" style="color:black; justify-content: left;">
 					<label for="email" >email:</label>
-					<input type="text" name="email" required id="email" class="form-control" style="border-radius: 15px;">
+					<input type="text" name="email" id="email" class="form-control" style="border-radius: 15px;">
 					<br>
 					<label for="password">password:</label>
-					<input type="password" name="password" id="password" class="form-control" required style="border-radius: 15px;">
+					<input type="password" name="password" id="password" class="form-control" style="border-radius: 15px;">
 					<br>
 					<button type="submit" class="btn-block form-controll btn search" style="background-color: #72b8c9; color: white;">
 						<i class="fa fa-sign-in"></i> Sign In
@@ -60,16 +60,16 @@
 		            
 					<form name="RegisterDispatcher" action="RegisterDispatcher" method="POST" style="color:black; justify-content: left;">
 						<label for="email">email:</label>
-						<input type="email" name="email" id="email" class="form-control" required style="border-radius: 15px;">
+						<input type="email" name="email" id="email" class="form-control" style="border-radius: 15px;">
 						<br>
 						<label for="name">username:</label>
-						<input type="text" name="name" id="name" class="form-control" required style="border-radius: 15px;">
+						<input type="text" name="name" id="name" class="form-control" style="border-radius: 15px;">
 						<br>
 						<label for="password">password:</label>
-						<input type="password" name="password" id="password" class="form-control" required style="border-radius: 15px;">
+						<input type="password" name="password" id="password" class="form-control" style="border-radius: 15px;">
 						<br>
 						<label for="confirm_password">confirm password:</label>
-						<input type="password" name="confirm_password" id="confirm_password" class="form-control" required style="border-radius: 15px;">
+						<input type="password" name="confirm_password" id="confirm_password" class="form-control" style="border-radius: 15px;">
 						<br>
 						<input type="checkbox" name="checkbox" value="agree"> I have read and agree to all terms and conditions of Pocket Chef
 						<br><br>
@@ -82,5 +82,25 @@
 		    </div>
         
 		</div>
-    </body>
+	<%
+	//check errors, display error message at top
+	String loginError = (String) request.getAttribute("error");
+	if (loginError != null) {
+		//if(request.getParameter("error").length() > 1) {
+	%>
+	<div>Invalid email or password. Please try again.</div>
+	<%
+	}
+	%>
+	<%
+	//check errors, display error message at top
+	String registerError = (String) request.getAttribute("registerError");
+	if (registerError != null) {
+		//if(request.getParameter("error").length() > 1) {
+	%>
+	<div>Invalid entries. Please try again.</div>
+	<%
+	}
+	%>
+</body>
 </html>
