@@ -1,3 +1,4 @@
+package j;
 import com.google.gson.*;
 
 import java.lang.reflect.Type;
@@ -26,17 +27,15 @@ public class RecipeDataParser {
             return;
         }
         System.out.println("im hereeeeeeeeeeeeeeee");
-        String recipes = "INSERT INTO recipes (id, name_of_recipe, image_url, url, ingredients, categories, instructions) VALUES (?, ?, ?, ?, ?, ?, ?)";
-        
         Connection conn;
-        PreparedStatement sql = null;
-        
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
+        // first clean the tables
+ 		String delCategory = "DELETE FROM recipes;";
+ 		 try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
             //TODO check if you've done the initialization
             
         	conn = DriverManager.getConnection(Constant.DBUrl, Constant.DBUserName, Constant.DBPassword);
-			sql = conn.prepareStatement(recipes);
+			
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
@@ -45,7 +44,33 @@ public class RecipeDataParser {
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
+ 		PreparedStatement sql = null;
+ 			
+ 			try {
+ 			conn = DriverManager.getConnection(Constant.DBUrl, Constant.DBUserName, Constant.DBPassword);
+ 			// you have to delete the two tables that contain the foreign keys first
+ 			PreparedStatement ps1 = conn.prepareStatement(delCategory);
+ 			ps1.executeUpdate();
+ 			
+ 			System.out.println("successfully cleaned tables");
+ 			 String recipes = "INSERT INTO recipes (id, name_of_recipe, image_url, url, ingredients, categories, instructions) VALUES (?, ?, ?, ?, ?, ?, ?)";
+ 	        sql = conn.prepareStatement(recipes);
+ 		       
+ 	        
+ 			System.out.println("inserted successfully");
+ 		}
+ 		catch (SQLException ex) {
+ 			
+   			System.out.println("SQLException: " + ex.getMessage());
+   		}
+ 		
+ 		
+        
+        
+       
         ready = true;
+        
+    
         
         Gson gson = new Gson();
         Recipe[] recipies = null;
@@ -93,7 +118,7 @@ public class RecipeDataParser {
 
     public static Recipe getRecipe(String id) {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             String sql = "SELECT id, name_of_recipe, image_url, url, ingredients, categories, instructions FROM finalproject.recipes WHERE id = '" + id + "';";
             
             Connection conn = DriverManager.getConnection(Constant.DBUrl, Constant.DBUserName, Constant.DBPassword);
@@ -155,7 +180,7 @@ public class RecipeDataParser {
         sql += "OR r.categories LIKE '%" + filt_array[filt_array.length-1] + "%');";
         
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection(Constant.DBUrl, Constant.DBUserName, Constant.DBPassword);
 			Statement s = conn.createStatement();
 			ResultSet rs = s.executeQuery(sql);
@@ -192,7 +217,7 @@ public class RecipeDataParser {
          PreparedStatement sql = null;
          
          try {
-             Class.forName("com.mysql.jdbc.Driver");
+             Class.forName("com.mysql.cj.jdbc.Driver");
              //TODO check if you've done the initialization
              
          	conn = DriverManager.getConnection(Constant.DBUrl, Constant.DBUserName, Constant.DBPassword);
@@ -217,7 +242,7 @@ public class RecipeDataParser {
     	String sql = "SELECT recipe_id FROM final_project.past_recipes WHERE user_email = '" + user_email + "';";
     	
     	try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection(Constant.DBUrl, Constant.DBUserName, Constant.DBPassword);
 			Statement s = conn.createStatement();
 			ResultSet rs = s.executeQuery(sql);

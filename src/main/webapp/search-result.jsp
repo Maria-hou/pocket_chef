@@ -11,30 +11,19 @@
 <%@ page import="javax.servlet.http.HttpServlet"%>
 <%@ page import="javax.servlet.http.HttpServletRequest"%>
 <%@ page import="javax.servlet.http.HttpServletResponse"%>
-
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Search</title>
+        <title>Pocket Chef Home</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="index.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
-
-	<link
-	href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@300&display=swap"
-	rel="stylesheet">
-	
-	<script src="https://kit.fontawesome.com/3204349982.js"
+		<script src="https://kit.fontawesome.com/3204349982.js"
 	crossorigin="anonymous"></script>
     </head>
-        <title>Search for Recipes</title>
-
-          
-
-
-<style>
+    <style>
 
 
 .checkboxes {
@@ -47,18 +36,134 @@
 .checkboxes label{
   margin: 0px 25px 0px 3px;
   color: #5B7C7D;
+  <style>
+.logo a {
+	font-family: lobster;
+	color: red;
+	margin-left: 40px;
+	font-size: 30px
+}
+
+.topnav a {
+	margin-top: 15px;
+	text-decoration: none;
+}
+
+.topnav-righthome {
+	float: right;
+	font-size: 15px;
+	margin-right: 30px;
+	margin-top: 15px;
+}
+
+.topnav-rightlogin {
+	float: right;
+	font-size: 15px;
+	margin-right: 40px;
+	margin-top: 15px;
+}
+
+.topnav-left {
+	float: left;
+	font-size: 15px;
+}
+
+.bottomnav a {
+	margin-bottom: 30px;
+	text-decoration: none;
+}
+
+.bottomnav-right {
+	float: right;
+	margin-right: 300px;
+}
+
+.bottomnav-text {
+	width: 100 px;
+}
+
+.button {
+	background-color: #8b0000;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 10px;
+	margin: 10px 10px;
+	cursor: pointer;
+}
+
+img {
+	margin-left: 10px;
+	margin-right: 10px;
+	max-width: 98%;
+}
+
+.login-left {
+	float: left;
+	margin-top: 150px;
+	margin-left: 300px;
+}
+
+.login-right {
+	float: right;
+	margin-top: 100px;
+	margin-right: 300px;
+}
+
+.img {
+	float: left;
+	padding-right: 10px;
+	margin-left: 50px;
+	border-radius: 10%;
+	max-width: 98%;
+}
+
+.format {
+	margin-left: 140px;
+}
+</style>
 }
 
 </style>
-   
+
     <body>
-    	
-    
-    
-    
-    
-    
-    	<!-- HEADER -->
+	<% Cookie[] cookies  = request.getCookies(); 
+        	String ingredients = null;
+        	String filters = null;
+        	
+        	if(cookies != null) {
+	        	for (Cookie aCookie : cookies)
+	    		{
+	    			if(aCookie.getName().equals("ingredients")) {
+	    				ingredients = aCookie.getValue();
+	    			}
+	    			else if(aCookie.getName().equals("filters")) {
+	    				filters = aCookie.getValue();
+	    			}
+	        	}
+        	}
+        	ArrayList<Recipe> recipes = null;
+        	if(ingredients == null || filters == null) {
+				System.out.println("Smth wrong with the search form, cookies no info");
+        	}
+        	else {
+        		System.out.println("WE ARE IN ELSE");
+        		 RecipeDataParser dataparser = new RecipeDataParser();
+        		recipes = dataparser.getRecipes(ingredients, filters); 
+        	}
+        	//System.out.println(recipes.toString());
+        	for (Recipe r: recipes){
+        		System.out.println(r.getNameOfRecipe());
+        		System.out.println(r.getImageUrl());
+        		System.out.println(r.getProducts());
+        		System.out.println(r.getInstructions());
+        	}
+ 		%>
+	
+		<!-- HEADER -->
         	<nav class="navbar navbar-expand-lg" style="background-color: #5b7b7d">
 			<div class="container-fluid" >
 	        	<a href="index.jsp">
@@ -107,19 +212,13 @@
 	        
         	</div>
         	</nav>
-        
-        
-        <form action="SearchDispatcher" action="POST"> 
-        <div id="center-text" style=" position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: 'Inter', sans-serif;">
+        	<form action="SearchDispatcher" action="POST">
+        	<div id="center-text" style=" position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%); font-family: 'Inter', sans-serif;">
         		
-        		
-        		  <div style = "font-size: 20px; color: #5B7C7D; font-family: 'Inter', sans-serif; text-align:center"> 
-     			 Input ingredients you have in your fridge and separate by comma
-     			 </div>
      			 <div style="white-space: nowrap;"> 
      			 
 	     			 <label for="text "> <input type="text" id="ingredients"
-						name="ingredients" style="width: 800px; margin: 5px; border-radius: 10px;">
+						name="ingredients" style="width: 500px; margin: 5px; border-radius: 10px;">
 					</label>
 		
 					<button class="btn" style = "background-color: #72B8C9; border: none; color: white; padding: 5px 8px; text-align: center; text-decoration: none; display: inline-block; overflow: hidden; padding-right: .5em;">
@@ -140,15 +239,45 @@
         		
         	</div>
         	</form>
-      
-    
-        
-        
-         <div id="margin-bottom" style=" position: absolute; top: 80%; left: 10%; font-family: 'Inter', sans-serif;">
-        	<label style="color: #72B8C9; font-size: 20px;"> List of Ingredients we have in our database: </label> <br>
-        	<label style="color: #5B7C7D; font-size: 20px;"> apples, pineapples, oranges, flour, eggs, onion, bellpepper,  yogurt, olive oil +  30 more items </label>
+        	
+        	
+        	<!--  RESULT NUM-->
+        	
+        	<!-- RESULTS -->
+        	<div class="container" >
+        	<% 
+        	for (Recipe r: recipes){%>
+			        		
+			    <br>
+				<br>
+				<br>
+				
+        		<div class = img>
+						<img  src="<%=r.getImageUrl() %>" style="border-radius:10%; width:150px; height:150px;  margin-left: 20px; object-fit: cover;">
+					</div>	
+				<div class=format ">
+				<!--  TO BE CHANGED -->
+						<form action="DetailsDispatcher" method="POST"> 
+							<button action="DetailsDispatcher" method="POST" style="font-size: 14px; background: none; border: none;padding: 0;text-decoration: underline; color: blue;" >
+							<%= r.getNameOfRecipe() %>
+							</button>
+							<%= r.getNameOfRecipe() %>
+							<input  name="name" value="<% r.getNameOfRecipe(); %>" style="display:none;">
+							<input style="display:none;" name="imageUrl" value="<%=r.getImageUrl()%>">
+							<input style="display:none;" name ="ingredients" value="<%=r.getProducts()%>" >
+							<!-- <input style="display:none;" name="price" value="${restaurant.price}"> 
+							<input style="display:none;" name="rating" value="${restaurant.rating}"> 
+							<input style="display:none;" name="address" value="${restaurant.address}"> 
+							<input style="display:none;" name="cat" value="${restaurant.cat}"> 
+							<input style="display:none;" name="phone" value="${restaurant.phone}"> -->
+						</form>
+						</div>
+				</div>
+				
+				<hr>
+        	<% }%>
+        	
         	</div>
-
-		
-    </body>
-</html>
+			
+        </body>
+        </html>

@@ -10,46 +10,54 @@
     </head>
     <body>
 	
-	<%-- <%
-	//can put this code into a separate java file if u want and just include it
-	//this is for if u want the user's name to show up across all pages (would be better to move this code into whatever file handles the tab navigator to reuse the code)
-		Cookie cookies[]=request.getCookies();
-		Boolean loggedin=false;
-		int nameIndex = 0;
-		for(int i=1; cookies!=null && i<cookies.length; i++)
-		{
-			if(cookies[i].getName() != null)
-			{
-				if((cookies[i].getName()).equals("name"))
-				{
-					//System.out.println(cookies[i].getValue());
-					nameIndex = i;
-				}
-			}
-		}
-	%>
-	<%if(cookies.length > 1 && cookies[nameIndex].getValue() != null) { 
-	  	String name = cookies[nameIndex].getValue();
-	  	name = name.replace("*", " ");%>
-	  	Hi, <%= name %>
-	<%loggedin=true;}%>
-	<a style="font-size: 22px;" href="http://localhost:8080/pocket_chef/search.html">Get Started</a>
-	<%if(!loggedin) { %>
-	<a href="http://localhost:8080/pocket_chef/login-register.html">Login/Register</a>
-	<%} else { %>
-	  	<a href="LogoutDispatcher">Logout</a>
-	<%} %> --%>
+	
 		<!-- HEADER -->
         	<nav class="navbar navbar-expand-lg" style="background-color: #5b7b7d">
 			<div class="container-fluid" >
-	        	<a href="index.html">
+	        	<a href="index.jsp">
 	        		<img src="image 2 (Traced).png" class="img-fluid" alt="Pocket Chef" style="max-width: 50%">
 	        	</a>
 	        
-	        	<ul class="navbar-nav ml-auto" style="font-family: 'Inter', sans-serif;">
-	        		<li style="padding-right: 2vw;" class="nav-item"><a href="login-register.html" style="color:#FFFFFF;">Login/Register</a></li>
-	        		<li class="nav-item"><a href="search.html"style="color:#FFFFFF;">Get Started</a></li>
-	        	</ul>
+	       		<%
+				//can put this code into a separate java file if u want and just include it
+				//this is for if u want the user's name to show up across all pages (would be better to move this code into whatever file handles the tab navigator to reuse the code)
+					Cookie cookies[]=request.getCookies();
+					Boolean loggedin=false;
+					int nameIndex = 0;
+					for(int i=1; cookies!=null && i<cookies.length; i++)
+					{
+						if(cookies[i].getName() != null)
+						{
+							if((cookies[i].getName()).equals("name"))
+							{
+								//System.out.println(cookies[i].getValue());
+								nameIndex = i;
+							}
+						}
+					}
+				%>
+				<%if(cookies.length > 1 && cookies[nameIndex].getValue() != null) { 
+				  	String name = cookies[nameIndex].getValue();
+				  	name = name.replace("*", " ");%>
+				  	
+				  		<p class="nav-item my-auto" style="color:#FFFFFF; font-family: 'Inter', sans-serif;">Hi, <%= name %></p>
+				  	
+				<%loggedin=true;}%>
+				
+			
+				<%if(!loggedin) { %>
+					<ul class="navbar-nav ml-auto" style="font-family: 'Inter', sans-serif;">
+		        		<li style="padding-right: 2vw;" class="nav-item"><a href="login-register.jsp" style="color:#FFFFFF;">Login/Register</a></li>
+		        		<li class="nav-item"><a href="search.jsp"style="color:#FFFFFF;">Get Started</a></li>
+		        	</ul>
+				<%} else { %>
+					<ul class="navbar-nav ml-auto" style="font-family: 'Inter', sans-serif;">
+		        		<li style="padding-right: 2vw;" class="nav-item"><a href="LogoutDispatcher" style="color:#FFFFFF;">Logout</a></li>
+		        		<li class="nav-item"><a href="search.jsp"style="color:#FFFFFF;">Get Started</a></li>
+		        	</ul>
+				  	
+				<%} %> 
+	        
         	</div>
         	</nav>
         
@@ -60,8 +68,11 @@
         		<div id="welcome" style="font-size: 20px; color: #5b7b7d; padding-bottom: 20px;">
         			Welcome to Pocket Chef!
         		</div> 
-        		<button type="button" class="btn btn-primary" style="background-color: #5b7b7d; outline:none; border-style: none;color: #FFFFFF; font-size: 9px; padding: 15px;">GET STARTED</button>
-        	</div>
+        		<form action="search.jsp">
+        			<input type="submit" class="btn btn-primary" style="background-color: #5b7b7d; outline:none; border-style: none;color: #FFFFFF; font-size: 9px; padding: 15px;" value="GET STARTED">
+        		</form>
+        		<!--  <button type="button" class="btn btn-primary" style="background-color: #5b7b7d; outline:none; border-style: none;color: #FFFFFF; font-size: 9px; padding: 15px;">GET STARTED</button>
+        	--></div>
         </div>
     </body>
 </html>

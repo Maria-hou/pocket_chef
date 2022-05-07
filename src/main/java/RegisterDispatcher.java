@@ -175,7 +175,7 @@ public class RegisterDispatcher extends HttpServlet {
 			} catch (SQLException | ClassNotFoundException e) {
 				e.printStackTrace();
 			}
-			response.sendRedirect("index.jsp");
+			//response.sendRedirect("index.jsp");
 		}
 	    else
 		{
