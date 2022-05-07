@@ -28,8 +28,28 @@ public class DetailsDispatcher extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //TODO
+    	response.setContentType("text/html");
     	
+    	System.out.println("in detail dispatcher");
+    	
+    	String recipe_id = request.getParameter("recipe_id");
+		String user_email = null;
 		
+		Cookie[] cookies  = request.getCookies(); 
+    	
+    	if(cookies != null) {
+        	for (Cookie aCookie : cookies)
+    		{
+    			if(aCookie.getName().equals("email")) {
+    				user_email = aCookie.getValue();
+    			}
+
+        	}
+    	}
+    	
+    	if(user_email != null) {
+    		j.RecipeDataParser.insertPastRecipe(recipe_id, user_email);
+    	}
 	}
 
 }

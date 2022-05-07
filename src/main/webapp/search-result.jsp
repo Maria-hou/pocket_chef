@@ -266,8 +266,8 @@ img {
 				<br />
 				<div class=format>
 				<!--  TO BE CHANGED -->
-						<form action="DetailsDispatcher" method="POST"> 
-							<button action="DetailsDispatcher" method="POST" style="font-size: 14px; font-family: 'Inter', sans-serif; color: #5B7C7D; background: none; border: none;padding: 0;text-decoration: underline; padding-left: 20px;" >
+						<form action="DetailsDispatcher" method="GET"> 
+							<button value=<%=r.getId()%> name="recipe_id" action="DetailsDispatcher" method="GET" style="font-size: 14px; font-family: 'Inter', sans-serif; color: #5B7C7D; background: none; border: none;padding: 0;text-decoration: underline; padding-left: 20px;" >
 							<%= r.getNameOfRecipe() %>
 							</button>
 							<input  name="name" value="<% r.getNameOfRecipe(); %>" style="display:none;">
