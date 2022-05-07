@@ -230,7 +230,7 @@ img {
 				<div class = "checkboxes"> 
 					<input type="checkbox" name="vegetarian" value="vegetarian" style = "color: #5B7C7D"/> <label> Vegetarian </label>
 					<input type="checkbox" name="vegan" value="vegan" /> <label> Vegan </label>
-					<input type="checkbox" name="gluten" value="gluten-free" /> <label> Gluten-Free </label>
+					<input type="checkbox" name="pesc" value="pescatarian" /> <label> Pescatarian </label>
 					<br> <br>
 					<input type="checkbox" name="asian" value="asian" style = "color: #5B7C7D"/> <label> Asian </label>
 					<input type="checkbox" name="mediterra" value="Mediterranean" /> <label> Mediterranean </label>
