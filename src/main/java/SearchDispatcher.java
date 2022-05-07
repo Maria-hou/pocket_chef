@@ -54,10 +54,6 @@ public class SearchDispatcher extends HttpServlet {
     	String ingredients = request.getParameter("ingredients");
     	String filters = request.getParameter("filters");
     	
-    	ArrayList<j.Recipe> ex = j.RecipeDataParser.getRecipes(ingredients, filters);
-    	for(int i=0; i<ex.size(); i++) {
-    		System.out.println(ex.get(i).getId());
-    	}
     	String newIng = ingredients.replace(",", "=");
     	newIng = newIng.replace(" ", "*");
     	Cookie cookie_ing = new Cookie("ingredients", newIng);
