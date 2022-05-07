@@ -159,12 +159,6 @@ img {
         		recipes = dataparser.getRecipes(ingredients, filters); 
         	}
         	//System.out.println(recipes.toString());
-        	for (Recipe r: recipes){
-        		System.out.println(r.getNameOfRecipe());
-        		System.out.println(r.getImageUrl());
-        		System.out.println(r.getProducts());
-        		System.out.println(r.getInstructions());
-        	}
  		%>
 	
 		<!-- HEADER -->
@@ -256,8 +250,12 @@ img {
         	
         	<!-- RESULTS -->
         	<div class="container" style="width: 1000px; margin: auto;">
-        	<% 
-        	for (Recipe r: recipes){%>
+        	<%if(recipes == null) { %>
+        		<div style="font-size: 14px; font-family: 'Inter', sans-serif; color: #5B7C7D; background: none; margin: auto; padding-left: 20px;">
+        		Uh-oh! Nothing found.
+        		</div>
+        	<%}else{ %>
+        	<% for (Recipe r: recipes){%>
 			        		
 			    <br>
 				<br>
@@ -285,6 +283,7 @@ img {
 				
 				<hr>
         	<% }%>
+        	<%} %>
         	
         	</div>
 			
