@@ -138,7 +138,9 @@ img {
 	        	for (Cookie aCookie : cookies)
 	    		{
 	    			if(aCookie.getName().equals("ingredients")) {
-	    				ingredients = aCookie.getValue();
+	    				String temp = aCookie.getValue();
+	    				ingredients = temp.replace("=", ",");
+	    				ingredients = ingredients.replace("*", " ");
 	    			}
 	    			else if(aCookie.getName().equals("filters")) {
 	    				filters = aCookie.getValue();
@@ -247,7 +249,7 @@ img {
         	<div class="container" >
         	<% 
         	for (Recipe r: recipes){%>
-			    <%String ing = r.getProducts();%>
+			        		
 			    <br>
 				<br>
 				<br>
@@ -262,7 +264,6 @@ img {
 							<%= r.getNameOfRecipe() %>
 							</button>
 							<%= r.getNameOfRecipe() %>
-							<p>Ingredients: <%=ing %></p>
 							<input  name="name" value="<% r.getNameOfRecipe(); %>" style="display:none;">
 							<input style="display:none;" name="imageUrl" value="<%=r.getImageUrl()%>">
 							<input style="display:none;" name ="ingredients" value="<%=r.getProducts()%>" >

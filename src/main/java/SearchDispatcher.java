@@ -58,8 +58,9 @@ public class SearchDispatcher extends HttpServlet {
     	for(int i=0; i<ex.size(); i++) {
     		System.out.println(ex.get(i).getId());
     	}
-    	
-    	Cookie cookie_ing = new Cookie("ingredients", ingredients);
+    	String newIng = ingredients.replace(",", "=");
+    	newIng = newIng.replace(" ", "*");
+    	Cookie cookie_ing = new Cookie("ingredients", newIng);
     	cookie_ing.setMaxAge(60*60);
     	Cookie cookie_filt = new Cookie("filters", filters);
     	cookie_filt.setMaxAge(60*60);
