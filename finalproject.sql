@@ -43,5 +43,5 @@ CREATE TABLE finalproject.`recipes` (
     `recipe_id` varchar(45) NOT NULL,
 	PRIMARY KEY (`id`),
     FOREIGN KEY (`user_email`) REFERENCES `user_info` (`email`),
-    FOREIGN KEY (`recipe_id`) REFERENCES `id` (`recipes`)
+    FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`id`)
 )
