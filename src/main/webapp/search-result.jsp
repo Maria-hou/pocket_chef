@@ -173,7 +173,7 @@ img {
 				//this is for if u want the user's name to show up across all pages (would be better to move this code into whatever file handles the tab navigator to reuse the code)
 					Cookie cookies1[]=request.getCookies();
 					Boolean loggedin=false;
-					int nameIndex = 0;
+					int nameIndex = -1;
 					for(int i=1; cookies1!=null && i<cookies1.length; i++)
 					{
 						if(cookies1[i].getName() != null)
@@ -186,7 +186,7 @@ img {
 						}
 					}
 				%>
-				<%if(cookies1.length > 1 && cookies1[nameIndex].getValue() != null) { 
+				<%if(cookies1.length > 1 && nameIndex != -1) { 
 				  	String name = cookies1[nameIndex].getValue();
 				  	name = name.replace("*", " ");%>
 				  	
@@ -251,7 +251,7 @@ img {
         	<!-- RESULTS -->
         	<div class="container" style="width: 1000px; margin: auto;">
         	<%if(recipes == null) { %>
-        		<div style="font-size: 14px; font-family: 'Inter', sans-serif; color: #5B7C7D; background: none; margin: auto; padding-left: 20px;">
+        		<div style="font-size: 16px; font-family: 'Inter', sans-serif; color: #5B7C7D; background: none; margin: auto; padding-left: 20px;">
         		Uh-oh! Nothing found.
         		</div>
         	<%}else{ %>
