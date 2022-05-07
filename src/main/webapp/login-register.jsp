@@ -19,8 +19,8 @@
         	</a>
         
         	<ul class="navbar-nav ml-auto" style="font-family: 'Inter', sans-serif;">
-        		<li style="padding-right: 2vw;" class="nav-item"><a href="login-register.html" style="color:#FFFFFF;">Login/Register</a></li>
-        		<li class="nav-item"><a href="search.html"style="color:#FFFFFF;">Get Started</a></li>
+        		<li style="padding-right: 2vw;" class="nav-item"><a href="login-register.jsp" style="color:#FFFFFF;">Login/Register</a></li>
+        		<li class="nav-item"><a href="search.jsp"style="color:#FFFFFF;">Get Started</a></li>
         	</ul>
        	</div>
        	</nav>

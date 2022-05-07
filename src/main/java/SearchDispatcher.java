@@ -28,7 +28,7 @@ public class SearchDispatcher extends HttpServlet {
         super.init(config);
         ServletContext servletContext = getServletContext();
 
-        InputStream stream = RecipeDataParser.class.getClassLoader().getResourceAsStream("/recipes.json");
+        InputStream stream = j.RecipeDataParser.class.getClassLoader().getResourceAsStream("/recipes.json");
         System.out.println("stream part");
         String json = null;
         try {
@@ -38,7 +38,7 @@ public class SearchDispatcher extends HttpServlet {
         	System.out.println("stream not");
         }
         
-        RecipeDataParser.Init(json);
+        j.RecipeDataParser.Init(json);
     }
 
     /**
@@ -54,7 +54,7 @@ public class SearchDispatcher extends HttpServlet {
     	String ingredients = request.getParameter("ingredients");
     	String filters = request.getParameter("filters");
     	
-    	ArrayList<Recipe> ex = RecipeDataParser.getRecipes(ingredients, filters);
+    	ArrayList<j.Recipe> ex = j.RecipeDataParser.getRecipes(ingredients, filters);
     	for(int i=0; i<ex.size(); i++) {
     		System.out.println(ex.get(i).getId());
     	}
@@ -67,7 +67,7 @@ public class SearchDispatcher extends HttpServlet {
     	response.addCookie(cookie_ing);
     	response.addCookie(cookie_filt);
 		
-    	response.sendRedirect("search.jsp");
+    	response.sendRedirect("search-result.jsp");
 	}
 
 }

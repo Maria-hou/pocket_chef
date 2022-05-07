@@ -1,4 +1,4 @@
-
+package j;
 import java.util.regex.Pattern;
 
 public class Constant {

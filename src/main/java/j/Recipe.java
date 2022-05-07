@@ -1,3 +1,4 @@
+package j;
 import java.util.List;
 
 import com.google.gson.annotations.Expose;
@@ -16,7 +17,6 @@ public class Recipe {
 		products = products_;
 		categories = categories_;
 		instructions = instructions_;
-		imageUrl= imageUrl_;
 	}
 	
 	String products, categories, instructions;
