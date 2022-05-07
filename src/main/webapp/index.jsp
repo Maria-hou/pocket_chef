@@ -10,7 +10,7 @@
     </head>
     <body>
 	
-	<%
+	<%-- <%
 	//can put this code into a separate java file if u want and just include it
 	//this is for if u want the user's name to show up across all pages (would be better to move this code into whatever file handles the tab navigator to reuse the code)
 		Cookie cookies[]=request.getCookies();
@@ -38,7 +38,7 @@
 	<a href="http://localhost:8080/pocket_chef/login-register.html">Login/Register</a>
 	<%} else { %>
 	  	<a href="LogoutDispatcher">Logout</a>
-	<%} %>
+	<%} %> --%>
 		<!-- HEADER -->
         	<nav class="navbar navbar-expand-lg" style="background-color: #5b7b7d">
 			<div class="container-fluid" >
