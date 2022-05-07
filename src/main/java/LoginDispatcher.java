@@ -14,6 +14,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import j.Constant;
 
 /**
  * Servlet implementation class LoginDispatcher
@@ -102,7 +103,7 @@ public class LoginDispatcher extends HttpServlet {
 		{
 			request.setAttribute("error", error);
 			request.setAttribute("invalid", "true");
-			request.getRequestDispatcher("login-register.html").forward(request, response);
+			request.getRequestDispatcher("login-register.jsp").forward(request, response);
 		}
     	
 		

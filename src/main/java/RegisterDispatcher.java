@@ -16,6 +16,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import j.Constant;
 
 /**
  * Servlet implementation class RegisterDispatcher
@@ -146,7 +147,7 @@ public class RegisterDispatcher extends HttpServlet {
 						emailError = "<p>This user has already been registered.</p>";
 						request.setAttribute("registerError", "true");
 						request.setAttribute("emailError", emailError);
-						request.getRequestDispatcher("/login-register.html").include(request, response);
+						request.getRequestDispatcher("/login-register.jsp").include(request, response);
 					}
 					else
 					{
@@ -185,7 +186,7 @@ public class RegisterDispatcher extends HttpServlet {
 			request.setAttribute("passError", passError);
 			request.setAttribute("confirmError", confirmError);
 			request.setAttribute("checkboxError", checkboxError);
-			request.getRequestDispatcher("/login-register.html").include(request, response);
+			request.getRequestDispatcher("/login-register.jsp").include(request, response);
 		}
 
 	}
