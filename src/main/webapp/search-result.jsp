@@ -247,7 +247,7 @@ img {
         	<div class="container" >
         	<% 
         	for (Recipe r: recipes){%>
-			        		
+			    <%String ing = r.getProducts();%>
 			    <br>
 				<br>
 				<br>
@@ -262,6 +262,7 @@ img {
 							<%= r.getNameOfRecipe() %>
 							</button>
 							<%= r.getNameOfRecipe() %>
+							<p>Ingredients: <%=ing %></p>
 							<input  name="name" value="<% r.getNameOfRecipe(); %>" style="display:none;">
 							<input style="display:none;" name="imageUrl" value="<%=r.getImageUrl()%>">
 							<input style="display:none;" name ="ingredients" value="<%=r.getProducts()%>" >
