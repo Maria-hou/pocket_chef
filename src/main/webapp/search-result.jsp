@@ -124,9 +124,11 @@ img {
 .format {
 	margin-left: 140px;
 }
-</style>
-}
 
+.container {
+	width: 1000px;
+	margin: auto;
+}
 </style>
 
     <body>
@@ -241,29 +243,35 @@ img {
         		
         	</div>
         	</form>
-        	
+        	<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
         	
         	<!--  RESULT NUM-->
         	
         	<!-- RESULTS -->
-        	<div class="container" >
+        	<div class="container" style="width: 1000px; margin: auto;">
         	<% 
         	for (Recipe r: recipes){%>
 			        		
 			    <br>
 				<br>
-				<br>
 				
         		<div class = img>
 						<img  src="<%=r.getImageUrl() %>" style="border-radius:10%; width:150px; height:150px;  margin-left: 20px; object-fit: cover;">
-					</div>	
-				<div class=format ">
+				</div>	
+				<br />
+				<div class=format>
 				<!--  TO BE CHANGED -->
 						<form action="DetailsDispatcher" method="POST"> 
-							<button action="DetailsDispatcher" method="POST" style="font-size: 14px; background: none; border: none;padding: 0;text-decoration: underline; color: blue;" >
+							<button action="DetailsDispatcher" method="POST" style="font-size: 14px; font-family: 'Inter', sans-serif; color: #5B7C7D; background: none; border: none;padding: 0;text-decoration: underline; padding-left: 20px;" >
 							<%= r.getNameOfRecipe() %>
 							</button>
-							<%= r.getNameOfRecipe() %>
 							<input  name="name" value="<% r.getNameOfRecipe(); %>" style="display:none;">
 							<input style="display:none;" name="imageUrl" value="<%=r.getImageUrl()%>">
 							<input style="display:none;" name ="ingredients" value="<%=r.getProducts()%>" >
@@ -274,7 +282,6 @@ img {
 							<input style="display:none;" name="phone" value="${restaurant.phone}"> -->
 						</form>
 						</div>
-				</div>
 				
 				<hr>
         	<% }%>
