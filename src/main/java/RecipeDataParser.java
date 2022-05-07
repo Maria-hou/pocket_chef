@@ -184,6 +184,67 @@ public class RecipeDataParser {
         return recipes;
 
     }
+    
+    public static void insertPastRecipe(String recipe_id, String user_email) {
+    	String stmt = "INSERT INTO past_recipes (recipe_id, user_email) VALUES (?, ?)";
+    	
+    	 Connection conn;
+         PreparedStatement sql = null;
+         
+         try {
+             Class.forName("com.mysql.jdbc.Driver");
+             //TODO check if you've done the initialization
+             
+         	conn = DriverManager.getConnection(Constant.DBUrl, Constant.DBUserName, Constant.DBPassword);
+ 			sql = conn.prepareStatement(stmt);
+ 			sql.setString(1, recipe_id);
+    		sql.setString(2, user_email);
+    		
+    		int row = sql.executeUpdate(); //the number of rows affected
+         } catch (ClassNotFoundException e) {
+             e.printStackTrace();
+         } catch (SQLException e) {
+ 			// TODO Auto-generated catch block
+ 			e.printStackTrace();
+ 			System.out.println(e.getMessage());
+ 		}catch (Exception e) {
+ 			System.out.println(e.getMessage());
+ 		}
+    }
+    
+    public static ArrayList<Recipe> getPastRecipes(String user_email) {
+    	ArrayList<Recipe> recipes = new ArrayList<Recipe>();
+    	String sql = "SELECT recipe_id FROM final_project.past_recipes WHERE user_email = '" + user_email + "';";
+    	
+    	try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(Constant.DBUrl, Constant.DBUserName, Constant.DBPassword);
+			Statement s = conn.createStatement();
+			ResultSet rs = s.executeQuery(sql);
+			
+			if(rs.next()) {
+				while(rs.next()) {
+					String id = rs.getString("recipe_id");
+					//System.out.println(rest_id);
+					recipes.add(getRecipe(id));
+				}
+			}else {
+				return null;
+			}
+			
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+			// TODO Auto-generated catch block
+        	System.out.println(e.getMessage());
+        	System.out.println("could not find recipes in getPastRecipes function");
+		}
+    	
+        if(recipes.isEmpty()) {
+        	System.out.println("did not find any past recipes");
+        }
+        return recipes;
+    }
 }
 
 //Code adapted from https://stackoverflow.com/questions/23070298/get-nested-json-object-with-gson-using-retrofit

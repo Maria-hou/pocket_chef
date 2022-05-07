@@ -36,3 +36,12 @@ CREATE TABLE finalproject.`recipes` (
    KEY `history_email_idx` (`history_email`),
    CONSTRAINT `history_email` FOREIGN KEY (`history_email`) REFERENCES `user_info` (`email`)
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+ 
+ CREATE TABLE finalproject.`past_recipes` (
+	`id` int NOT NULL AUTO_INCREMENT,
+	`user_email` varchar(45) NOT NULL,
+    `recipe_id` varchar(45) NOT NULL,
+	PRIMARY KEY (`id`),
+    FOREIGN KEY (`user_email`) REFERENCES `user_info` (`email`),
+    FOREIGN KEY (`recipe_id`) REFERENCES `id` (`recipes`)
+)
