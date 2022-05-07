@@ -52,13 +52,28 @@ public class SearchDispatcher extends HttpServlet {
     	response.setContentType("text/html");
     	
     	String ingredients = request.getParameter("ingredients");
-    	String filters = request.getParameter("filters");
+    	String filters = "";
+    	String vegetarian = request.getParameter("vegetarian");
+    	if (vegetarian != null) {filters += vegetarian + ", ";}
+    	String vegan = request.getParameter("vegan");
+    	if (vegan != null) {filters += vegan + ", ";}
+    	String gluten = request.getParameter("gluten");
+    	if (gluten != null) {filters += gluten + ", ";}
+    	String asian = request.getParameter("asian");
+    	if (asian != null) {filters += asian + ", ";}
+    	String mediterra = request.getParameter("mediterra");
+    	if (mediterra != null) {filters += mediterra + ", ";}
+    	
+    	System.out.println(filters);
     	
     	String newIng = ingredients.replace(",", "=");
     	newIng = newIng.replace(" ", "*");
     	Cookie cookie_ing = new Cookie("ingredients", newIng);
     	cookie_ing.setMaxAge(60*60);
-    	Cookie cookie_filt = new Cookie("filters", filters);
+    	String newFilt = filters.replace(",", "=");
+    	newFilt = newFilt.replace(" ", "*");
+    	System.out.println(newFilt);
+    	Cookie cookie_filt = new Cookie("filters", newFilt);
     	cookie_filt.setMaxAge(60*60);
     	
     	response.addCookie(cookie_ing);
