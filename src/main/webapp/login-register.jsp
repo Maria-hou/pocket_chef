@@ -51,9 +51,9 @@
 		    </div></div>
 	
 		    <!-- Second Half -->
-		    <div class="col-md-6 p-0  h-md-100 align-items-center h-md-100 p-5 text-center justify-content-center">
-		        
-		            <h4 style="color:#5b7b7d; ">Register</h4><br></br>
+		    <div class="col-md-6   p-0  h-md-100 align-items-center h-md-100 p-5 text-center justify-content-center">
+		       <br>
+		            <h4 style="color:#5b7b7d; ">Register</h4>
 		            <div  style="color:black; text-align: left;">
 		            
 		            <div class="d-md-flex align-items-center h-md-100 p-5 justify-content-center">
@@ -82,51 +82,5 @@
 		    </div>
         
 		</div>
-	
-	
-	<!--\ <div style="float: left; margin-left: 15%; margin-top: 10%">
-		<h2>Login</h2>
-		<form name="Login" action="LoginDispatcher" method="POST">
-			<label for="email">Email:</label><br /> <input type="text"
-				name="email" id="email" style="width: 400px"><br />
-			<br /> <label for="password">Password:</label><br /> <input
-				type="text" name="password" id="password" style="width: 400px"><br />
-			<br />
-			<button
-				style="background-color: #C12A0A; color: white; font-family: times new roman; font-size: 18px; width: 220px; height: 50px;"
-				type="submit" value="Submit" name="signin">
-				<i class="fa fa-sign-in"></i> Sign In
-			</button>
-			<br />
-		</form>
-		<br />
-	</div>
-	<div style="float:right; margin-right:15%; margin-top:10%">
-	<h2>Register</h2>
-		<form name="Register" action="RegisterDispatcher" method="POST">
-			<label for="email">Email:</label><br /> <input type="text"
-				name="email" id="email" style="width: 400px"><br />
-			<br /> <label for="name">Name:</label><br /> <input type="text"
-				name="name" id="name" style="width: 400px"><br />
-			<br /> <label for="password">Password:</label><br /> <input
-				type="text" name="password" id="password" style="width: 400px"><br />
-			<br /> <label for="confirm_password">Confirm Password:</label><br />
-			<input type="text" name="confirm_password" id="confirm_password"
-				style="width: 400px"><br />
-			<br /> <input type="checkbox" name="checkbox" value="check"
-				id="checkbox"> <label for="checkbox">I have read and
-				agree to all terms and conditions of SalEats</label><br />
-			<br />
-
-			<button
-				style="background-color: #C12A0A; color: white; font-family: times new roman; font-size: 18px; width: 220px; height: 50px;"
-				type="submit" value="Submit" name="signup">
-				<i class="fas fa-user-plus"></i> Create Account
-			</button>
-			<br />
-
-
-		</form>
-	</div> -->
     </body>
 </html>
