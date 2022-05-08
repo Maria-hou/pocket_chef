@@ -284,7 +284,9 @@ img {
 						
 				</div>
 				<div >
-					<h4 style=" font-family: 'Inter', sans-serif;"><%= r.getNameOfRecipe() %></h4>
+					<button value=<%=r.getId()%> name="recipe_id" action="DetailsDispatcher" method="GET" style="font-size: 18px; font-family: 'Inter', sans-serif; color: #5B7C7D; background: none; border: none;padding: 0;" >
+							<%= r.getNameOfRecipe() %>
+					</button>
 					<p style=" padding-left:50px;font-size: 16px; font-family: 'Inter', sans-serif; color: #656565; ">Ingredients: <%= r.getProducts()%></p><br />
 					
 				</div>	
