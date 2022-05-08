@@ -83,7 +83,7 @@
         	</div>
         	</nav>
         	<!-- RESULTS -->
-        	<div class="container" >
+        	<div class="container" style="width: 1000px; margin: auto;">
         	<% if (recipes != null) {
         	for (Recipe r: recipes){%>
 			        		
@@ -91,19 +91,27 @@
 				<br>
 				<br>
 				
-        		<div class = img>
-						<img  src="<%=r.getImageUrl() %>" style="border-radius:10%; width:150px; height:150px;  margin-left: 20px; object-fit: cover;">
-					</div>	
-				<div class=format ">
+        		<form action="DetailsDispatcher" method="GET">
+        		<div class ="img" style="float: left; padding-right: 30px;">
+						<input type="image" src="<%=r.getImageUrl() %>"style="border-radius:10%; width:150px; height:150px;  margin-left: 20px; object-fit: cover;" >
+						
+				</div>
+				<div >
+					<button value=<%=r.getId()%> name="recipe_id" action="DetailsDispatcher" method="GET" style="font-size: 18px; font-family: 'Inter', sans-serif; color: #5B7C7D; background: none; border: none;padding: 0;" >
+							<%= r.getNameOfRecipe() %>
+					</button>
+					<p style=" padding-left:50px;font-size: 16px; font-family: 'Inter', sans-serif; color: #656565; ">Ingredients: <%= r.getProducts()%></p><br />
+					
+				</div>	
+				</form>
+				<div class=format>
 				<!--  TO BE CHANGED -->
-						<form action="DetailsDispatcher" method="POST"> 
-							<button action="DetailsDispatcher" method="POST" style="font-size: 14px; background: none; border: none;padding: 0;text-decoration: underline; color: blue;" >
-							<%= r.getNameOfRecipe() %>
+						<form action="DetailsDispatcher" method="GET"> 
+							<button value=<%=r.getId()%> name="recipe_id" action="DetailsDispatcher" method="GET" style="font-size: 14px; font-family: 'Inter', sans-serif; color: #5B7C7D; background: none; border: none;padding: 0;text-decoration: underline; padding-left: 20px;" >
+							
 							</button>
-							<%= r.getNameOfRecipe() %>
-							<input  name="name" value="<% r.getNameOfRecipe(); %>" style="display:none;">
-							<input style="display:none;" name="imageUrl" value="<%=r.getImageUrl()%>">
-							<input style="display:none;" name ="ingredients" value="<%=r.getProducts()%>" >
+							<input style="display:none; padding-left:50px; "  name ="ingredients" value="<%=r.getProducts()%>" >
+							
 							<!-- <input style="display:none;" name="price" value="${restaurant.price}"> 
 							<input style="display:none;" name="rating" value="${restaurant.rating}"> 
 							<input style="display:none;" name="address" value="${restaurant.address}"> 
@@ -111,7 +119,6 @@
 							<input style="display:none;" name="phone" value="${restaurant.phone}"> -->
 						</form>
 						</div>
-				</div>
 				
 				<hr>
         	<% }
