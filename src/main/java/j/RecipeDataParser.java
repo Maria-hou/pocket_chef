@@ -186,14 +186,10 @@ public class RecipeDataParser {
 			Statement s = conn.createStatement();
 			ResultSet rs = s.executeQuery(sql);
 			
-			if(rs.next()) {
-				while(rs.next()) {
-					String id = rs.getString("id");
-					//System.out.println(rest_id);
-					recipes.add(getRecipe(id));
-				}
-			}else {
-				return null;
+			while(rs.next()) {
+				String id = rs.getString("id");
+				//System.out.println(rest_id);
+				recipes.add(getRecipe(id));
 			}
 			
         } catch (ClassNotFoundException e) {
