@@ -59,7 +59,7 @@
 		        	</ul>
 				<%} else { %>
 					<ul class="navbar-nav ml-auto" style="font-family: 'Inter', sans-serif;">
-						<li class="nav-item"><a href="history.jsp">History</a><li>
+						<li class="nav-item" style="padding-right: 2vw;"><a href="history.jsp" style="color:#FFFFFF;">History</a><li>
 		        		<li style="padding-right: 2vw;" class="nav-item"><a href="LogoutDispatcher" style="color:#FFFFFF;">Logout</a></li>
 		        		<li class="nav-item"><a href="search.jsp"style="color:#FFFFFF;">Get Started</a></li>
 		        	</ul>

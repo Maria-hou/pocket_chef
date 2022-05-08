@@ -208,7 +208,7 @@ img {
 		        	</ul>
 				<%} else { %>
 					<ul class="navbar-nav ml-auto" style="font-family: 'Inter', sans-serif;">
-						<li class="nav-item"><a href="history.jsp">History</a><li>
+						<li class="nav-item" style="padding-right: 2vw;"><a href="history.jsp" style="color:#FFFFFF;">History</a><li>
 		        		<li style="padding-right: 2vw;" class="nav-item"><a href="LogoutDispatcher" style="color:#FFFFFF;">Logout</a></li>
 		        		<li class="nav-item"><a href="search.jsp"style="color:#FFFFFF;">Get Started</a></li>
 		        	</ul>
@@ -281,7 +281,7 @@ img {
 				<div class=format>
 				<!--  TO BE CHANGED -->
 						<form action="DetailsDispatcher" method="GET"> 
-						<% System.out.println(r.getProducts());
+						<% //System.out.println(r.getProducts());
 							String ing = r.getProducts();
 							String ingNew = "";
 							if(ing != null)
@@ -301,7 +301,7 @@ img {
 								newCats = cats.replace(" ", "=");
 							}
 						String instructions = r.getInstructions();
-						System.out.println(instructions);
+						//System.out.println(instructions);
 						String newInstructions = "";
 						if(instructions != null)
 						{
@@ -309,7 +309,7 @@ img {
 							
 						}
 						String url = r.getUrl();
-						System.out.println(url);
+						//System.out.println(url);
 						String newurl = "";
 						if(url != null)
 						{
