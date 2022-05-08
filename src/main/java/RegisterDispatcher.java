@@ -128,10 +128,6 @@ public class RegisterDispatcher extends HttpServlet {
 			{
 				username = username.replace(" ", "*");
 			}
-			Cookie cookie1=new Cookie("name", username);
-			Cookie cookie2=new Cookie("email", email);
-			response.addCookie(cookie1);
-			response.addCookie(cookie2);
 			try {
 				Class.forName("com.mysql.cj.jdbc.Driver");
 				conn = DriverManager.getConnection(Constant.DBUrl, Constant.DBUserName, Constant.DBPassword);
@@ -145,7 +141,7 @@ public class RegisterDispatcher extends HttpServlet {
 					if(rsEmail.getRow() > 0)
 					{
 						emailError = "<p>This user has already been registered.</p>";
-						request.setAttribute("registerError", "true");
+						request.setAttribute("registerError", "<p>This user has already been registered.</p>");
 						request.setAttribute("emailError", emailError);
 						request.getRequestDispatcher("/login-register.jsp").include(request, response);
 					}
@@ -163,6 +159,10 @@ public class RegisterDispatcher extends HttpServlet {
 				}
 				else
 				{
+					Cookie cookie1=new Cookie("name", username);
+					Cookie cookie2=new Cookie("email", email);
+					response.addCookie(cookie1);
+					response.addCookie(cookie2);
 					//insert new user into database
 					PreparedStatement newuserps = conn.prepareStatement(ins);
 					newuserps.setString(1, email);
