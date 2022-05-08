@@ -82,8 +82,12 @@
 	        
         	</div>
         	</nav>
-        	<!-- RESULTS -->
+        	
+         	<!-- RESULTS -->
         	<div class="container" style="width: 1000px; margin: auto;">
+        	<br>
+        	<br>
+        	<h3 style="font-family: 'Inter', sans-serif; color: #5B7C7D; background: none; margin: auto; padding-left: 20px;"> My past recipes: </h3>
         	<% if (recipes != null) {
         	for (Recipe r: recipes){%>
 			        		
@@ -119,7 +123,8 @@
 							<input style="display:none;" name="phone" value="${restaurant.phone}"> -->
 						</form>
 						</div>
-				
+				<br>
+				<br>
 				<hr>
         	<% }
         	}%>
