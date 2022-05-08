@@ -75,7 +75,7 @@
 				<%} else { %>
 					<ul class="navbar-nav ml-auto" style="font-family: 'Inter', sans-serif;">
 		        		<li style="padding-right: 2vw;" class="nav-item"><a href="LogoutDispatcher" style="color:#FFFFFF;">Logout</a></li>
-		        		<li class="nav-item"><a href="search.jsp"style="color:#FFFFFF;">Search</a></li>
+		        		<li class="nav-item"><a href="search.jsp"style="color:#FFFFFF;">Get Started</a></li>
 		        	</ul>
 				  	
 				<%} %> 

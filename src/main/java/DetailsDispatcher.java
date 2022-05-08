@@ -46,8 +46,9 @@ public class DetailsDispatcher extends HttpServlet {
 
         	}
     	}
-    	
-    	if(user_email != null && !RecipeDataParser.checkRecipe(recipe_id)) {
+    	System.out.println(user_email);
+    	if(user_email != null && !j.RecipeDataParser.checkRecipe(recipe_id)) {
+    		System.out.println("we are adding recipe");
     		j.RecipeDataParser.insertPastRecipe(recipe_id, user_email);
     	}
     	
