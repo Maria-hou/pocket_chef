@@ -9,6 +9,7 @@
 <%@ page import = "javax.servlet.http.HttpServlet" %>
 <%@ page import = "javax.servlet.http.HttpServletRequest" %>
 <%@ page import = "javax.servlet.http.HttpServletResponse" %>
+<%@ page import="java.util.ArrayList,java.util.Arrays,java.util.List "%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,7 +72,7 @@
 		        	</ul>
 				<%} else { %>
 					<ul class="navbar-nav ml-auto" style="font-family: 'Inter', sans-serif;">
-						<li class="nav-item"><a href="history.jsp">History</a><li>
+						<li class="nav-item" style="padding-right: 2vw;"><a href="history.jsp" style="color:#FFFFFF;">History</a><li>
 		        		<li style="padding-right: 2vw;" class="nav-item"><a href="LogoutDispatcher" style="color:#FFFFFF;">Logout</a></li>
 		        		<li class="nav-item"><a href="search.jsp"style="color:#FFFFFF;">Get Started</a></li>
 		        	</ul>
@@ -89,31 +90,64 @@
 	String newResName = resName.replace("=", " ");
 	String categories = (String)request.getAttribute("cats");
 	String newCategories = categories.replace("=", " ");
+	String [] c = newCategories.split("\\s+");
 	String ingredients = (String)request.getAttribute("ingredients");
 	String newIngredients = ingredients.replace("=", " ");
 	String steps = (String)request.getAttribute("steps");
 	String newSteps = steps.replace("=", " ");
 	String url = (String)request.getAttribute("urlToWebsite");
 	String newUrl = url.replace("=", " ");
+	String[] directions = newSteps.split("[0-9]+\\.");
+	System.out.println(Arrays.toString(directions));
 %>
-<h1 style = "margin-left: 30px;"> <%= newResName %> </h1>
-				<div class = img>
+
+	<div class="row">
+		<div class="column" style="float: left; width: 50%;">
+			<h1 style = "margin-left: 30px;padding-top: 50px; font-size: 20px; font-family: 'Inter', sans-serif; text-decoration:underline; color: #5B7C7D; background: none; margin: auto; padding-left:100px; padding-bottom: 20px;"> <%= newResName %> </h1>
+				<div class = img style="float: left;  padding-left: 70px; " >
 						<!--  IMAGE -->
-						<img src= <%=image_url%> style="border-radius: 10%" width="100" height="100">
-						 </div>
-						<div class = descript>
-						<!--  OUTPUT INFO HERE, DUMMY code for now, put in real stuff later -->
-						Categories: <%= newCategories %>
+						<img src= <%=image_url%> style="border-radius: 10%;object-fit: cover;" height="350" width="350">
+				</div>
+				
+				<p style="text-decoration:underline; clear:both; padding-top: 20px;padding-left: 70px;font-size: 20px;color: #5B7C7D;float: left; display: inline-block; font-family: 'Inter', sans-serif;">
+							<% if (newUrl != "") { %>
+							 <a href= <%= newUrl %> style="color: #5B7C7D;">Link to Recipe</a>
+							 <% } %>
+						</p>
+		</div>
+		<div class="column" style="float: left; width: 50%;">
+			<div class = descript style="font-family: 'Inter', sans-serif; color: #5B7C7D; background: none; margin: auto; padding-top: 50px;" >
+						
+						<p style="text-decoration:underline; font-size: 20px;">Categories:</p> <p style="color: #72b8c9; font-size: 16px;">
+							<% for (int k=0; k< c.length; k++){
+								if(k!= c.length-1){%>
+									<%=c[k] %>, 
+								<% }
+								else{%>
+									<%=c[k]%>
+								<% }%>
+							<% }%>
+							
 						<br>
-						Ingredients: <%= newIngredients %>
+						<p style="text-decoration:underline; font-size: 20px;"> Ingredients:</p> <p style="color: #72b8c9;font-size: 16px;word-wrap: break-word;width: 90%;"><%= newIngredients %></p>
 						<br>
-						Steps:	<%= newSteps %>
-						<br>
-						<% if (newUrl != "") { %>
-						 <a href= <%= newUrl %> >More Info</a>
-						 <% } %>
-						<br>
+						<p style="text-decoration:underline; font-size: 20px;">Directions:</p>	<p style="color: #72b8c9;font-size: 16px;"></p>
+						
+						<p style="word-wrap: break-word;color: #72b8c9;font-size: 16px; width: 90%;">
+							<% int i=0; %>
+							<% for(int j=1; j< directions.length; j++){%>
+								<%=j%>. <%=directions[j] %><br>
+								
+							<%}%>
+						</p>
+						
+						
 						</div>
+		</div>
+	</div>
+
+						
+						
 						
 
 </body>
