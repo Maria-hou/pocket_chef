@@ -278,19 +278,6 @@ img {
 			        		
 			    <br>
 				<br>
-				<form action="DetailsDispatcher" method="GET">
-        		<div class ="img" style="float: left; padding-right: 30px;">
-						<input type="image" src="<%=r.getImageUrl() %>"style="border-radius:10%; width:150px; height:150px;  margin-left: 20px; object-fit: cover;" >
-						
-				</div>
-				<div >
-					<button value=<%=r.getId()%> name="recipe_id" action="DetailsDispatcher" method="GET" style="font-size: 18px; font-family: 'Inter', sans-serif; color: #5B7C7D; background: none; border: none;padding: 0;" >
-							<%= r.getNameOfRecipe() %>
-					</button>
-					<p style=" padding-left:50px;font-size: 16px; font-family: 'Inter', sans-serif; color: #656565; ">Ingredients: <%= r.getProducts()%></p><br />
-					
-				</div>	
-				</form>
 				<div class=format>
 				<!--  TO BE CHANGED -->
 						<form action="DetailsDispatcher" method="GET"> 
@@ -330,8 +317,20 @@ img {
 						}
 						
 						%>
-							<button value=<%=r.getId()%> name="recipe_id" action="DetailsDispatcher" method="GET" style="font-size: 14px; font-family: 'Inter', sans-serif; color: #5B7C7D; background: none; border: none;padding: 0;text-decoration: underline; padding-left: 20px;" >
+        		<div class ="img" style="float: left; padding-right: 30px;">
+						<input type="image" src="<%=r.getImageUrl() %>"style="border-radius:10%; width:150px; height:150px;  margin-left: 20px; object-fit: cover;" >
+						
+				</div>
+				<div >
+					<button value=<%=r.getId()%> name="recipe_id" action="DetailsDispatcher" method="GET" style="font-size: 18px; font-family: 'Inter', sans-serif; color: #5B7C7D; background: none; border: none;padding: 0;" >
 							<%= r.getNameOfRecipe() %>
+					</button>
+					<p style=" padding-left:50px;font-size: 16px; font-family: 'Inter', sans-serif; color: #656565; ">Ingredients: <%= r.getProducts()%></p><br />
+					
+				</div>	
+	
+							<button value=<%=r.getId()%> name="recipe_id" action="DetailsDispatcher" method="GET" style="font-size: 14px; font-family: 'Inter', sans-serif; color: #5B7C7D; background: none; border: none;padding: 0;text-decoration: underline; padding-left: 20px;" >
+							<%= " " %>
 							</button>
 							<input style="display:none;" name="name_res" value=<%= resNew %>>
 							  <input style="display:none;" name="image_url" value=<%= r.getImageUrl() %>>
