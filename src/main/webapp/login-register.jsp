@@ -25,7 +25,22 @@
        	</div>
        	</nav>
 	
-	
+	<%
+		//check errors, display error message at top
+		String loginError = (String) request.getAttribute("error");
+		if (loginError != null) {
+			//if(request.getParameter("error").length() > 1) {
+		%>
+			<div style="font-size: 16px; font-family: 'Inter', sans-serif; background-color:#FF7276;color: white; "><br><center>Invalid email or password. Please try again.</center><br></div>
+		<%
+	}%><%
+		//check errors, display error message at top
+		String registerError = (String) request.getAttribute("registerError");
+		if (registerError != null) {
+			//if(request.getParameter("error").length() > 1) {
+		%>
+		<div style="font-size: 16px; font-family: 'Inter', sans-serif; background-color:#FF7276;color: white; "><br><center><%=registerError %></center><br></div>
+	<%}%>
 	<!-- FORMS -->
 		<div class="d-md-flex h-md-100 align-items-center">
 	
@@ -82,25 +97,6 @@
 		    </div>
         
 		</div>
-	<%
-	//check errors, display error message at top
-	String loginError = (String) request.getAttribute("error");
-	if (loginError != null) {
-		//if(request.getParameter("error").length() > 1) {
-	%>
-	<div>Invalid email or password. Please try again.</div>
-	<%
-	}
-	%>
-	<%
-	//check errors, display error message at top
-	String registerError = (String) request.getAttribute("registerError");
-	if (registerError != null) {
-		//if(request.getParameter("error").length() > 1) {
-	%>
-	<div>Invalid entries. Please try again.</div>
-	<%
-	}
-	%>
+	
 </body>
 </html>

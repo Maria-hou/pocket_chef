@@ -11,6 +11,8 @@
 <%@ page import="javax.servlet.http.HttpServlet"%>
 <%@ page import="javax.servlet.http.HttpServletRequest"%>
 <%@ page import="javax.servlet.http.HttpServletResponse"%>
+<%@ page import="java.util.ArrayList,java.util.Arrays,java.util.List "%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -159,6 +161,8 @@ img {
         		System.out.println("WE ARE IN ELSE");
         		 RecipeDataParser dataparser = new RecipeDataParser();
         		recipes = dataparser.getRecipes(ingredients, filters); 
+        		
+        		
         	}
         	//System.out.println(recipes.toString());
  		%>
@@ -249,32 +253,49 @@ img {
 			<br>
         	
         	<!--  RESULT NUM-->
+        	<div class="container" style="font-size: 16px; font-family: 'Inter', sans-serif; color: #5B7C7D; background: none; margin: auto; padding-left: 20px;">
+        	<%if(recipes ==null){ %>
+        		<h3>Uh-oh! Nothing found.</h3>
+        	<% }
+        	 else if (recipes.size()==1){%>
+        		<h3> <%=recipes.size()%> result: </h3>
+        		
+        	<% }
+        	else if(recipes.size()>=2){%>
+        		<h3> <%=recipes.size()%> results: </h3>
+        	<% }%>
         	
+        	
+        	
+        	</div>
         	<!-- RESULTS -->
         	<div class="container" style="width: 1000px; margin: auto;">
         	<%if(recipes == null) { %>
-        		<div style="font-size: 16px; font-family: 'Inter', sans-serif; color: #5B7C7D; background: none; margin: auto; padding-left: 20px;">
-        		Uh-oh! Nothing found.
-        		</div>
+        		
         	<%}else{ %>
         	<% for (Recipe r: recipes){%>
 			        		
 			    <br>
 				<br>
-				
-        		<div class = img>
-						<img  src="<%=r.getImageUrl() %>" style="border-radius:10%; width:150px; height:150px;  margin-left: 20px; object-fit: cover;">
+				<form action="DetailsDispatcher" method="GET">
+        		<div class ="img" style="float: left; padding-right: 30px;">
+						<input type="image" src="<%=r.getImageUrl() %>"style="border-radius:10%; width:150px; height:150px;  margin-left: 20px; object-fit: cover;" >
+						
+				</div>
+				<div >
+					<h4 style=" font-family: 'Inter', sans-serif;"><%= r.getNameOfRecipe() %></h4>
+					<p style=" padding-left:50px;font-size: 16px; font-family: 'Inter', sans-serif; color: #656565; ">Ingredients: <%= r.getProducts()%></p><br />
+					
 				</div>	
-				<br />
+				</form>
 				<div class=format>
 				<!--  TO BE CHANGED -->
 						<form action="DetailsDispatcher" method="GET"> 
 							<button value=<%=r.getId()%> name="recipe_id" action="DetailsDispatcher" method="GET" style="font-size: 14px; font-family: 'Inter', sans-serif; color: #5B7C7D; background: none; border: none;padding: 0;text-decoration: underline; padding-left: 20px;" >
-							<%= r.getNameOfRecipe() %>
+							
 							</button>
-							<input  name="name" value="<% r.getNameOfRecipe(); %>" style="display:none;">
-							<input style="display:none;" name="imageUrl" value="<%=r.getImageUrl()%>">
-							<input style="display:none;" name ="ingredients" value="<%=r.getProducts()%>" >
+							<input style="display:none; padding-left:50px; "  name ="ingredients" value="<%=r.getProducts()%>" >
+							
 							<!-- <input style="display:none;" name="price" value="${restaurant.price}"> 
 							<input style="display:none;" name="rating" value="${restaurant.rating}"> 
 							<input style="display:none;" name="address" value="${restaurant.address}"> 
@@ -283,7 +304,6 @@ img {
 						</form>
 						</div>
 				
-				<hr>
         	<% }%>
         	<%} %>
         	

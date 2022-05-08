@@ -191,8 +191,8 @@
     {
         "id":"22",
         "name_of_recipe": "Banana Bread",
-        "image_url": "https://natashaskitchen.com/wp-content/uploads/2018/10/Borscht-Recipe-3.jpg",
-        "url": "https://natashaskitchen.com/classic-russian-borscht-recipe/",
+        "image_url": "https://natashaskitchen.com/wp-content/uploads/2018/05/Banana-Bread-Recipe-6-1024x1536.jpg",
+        "url": "https://natashaskitchen.com/banana-bread-recipe-video/",
         "ingredients":["flour", "sugar", "salt", "baking soda", "vanilla extract", "butter", "eggs", "bananas"],
         "filters": ["american", "vegetarian"],
         "steps": "1. In the mixing bowl, cream together butter and sugar. 2. Mix in mashed bananas and eggs. 3. Whisk together dry ingredients: flour, salt, and baking soda and add to batter. 4. Stir in vanilla, walnuts, and raisins, transfer to prepared loaf pan and bake."
@@ -209,8 +209,8 @@
     {
         "id":"24",
         "name_of_recipe": "Vanilla Ice Cream",
-        "image_url": "https://img.buzzfeed.com/video-api-prod/assets/89368e479e5a49eca1295227abdd3a95/Hot_Chocolate_C.jpg",
-        "url": "https://www.allrecipes.com/recipe/20211/creamy-hot-cocoa/",
+        "image_url": "https://static01.nyt.com/images/2014/06/27/multimedia/clark-icecream/clark-icecream-articleLarge.jpg",
+        "url": "https://cooking.nytimes.com/recipes/1016605-the-only-ice-cream-recipe-youll-ever-need",
         "ingredients":["heavy cream", "sugar", "salt", "half and half"],
         "filters": ["american", "vegetarian"],
         "steps": "1. In a small pot, simmer heavy cream, milk, sugar and salt until sugar completely dissolves, about 5 minutes. Remove pot from heat. 2. In a separate bowl, whisk yolks. Whisking constantly, slowly whisk about a third of the hot cream into the yolks, then whisk the yolk mixture back into the pot with the cream. 3. Return pot to medium-low heat and gently cook until mixture is thick enough to coat the back of a spoon (about 170 degrees on an instant-read thermometer)."
