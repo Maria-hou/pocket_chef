@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import j.RecipeDataParser;
+
 import java.io.IOException;
 import java.io.Serial;
 import java.sql.SQLException;
@@ -30,8 +32,6 @@ public class DetailsDispatcher extends HttpServlet {
         //TODO
     	response.setContentType("text/html");
     	
-    	System.out.println("in detail dispatcher");
-    	
     	String recipe_id = request.getParameter("recipe_id");
 		String user_email = null;
 		
@@ -47,7 +47,7 @@ public class DetailsDispatcher extends HttpServlet {
         	}
     	}
     	
-    	if(user_email != null) {
+    	if(user_email != null && !RecipeDataParser.checkRecipe(recipe_id)) {
     		j.RecipeDataParser.insertPastRecipe(recipe_id, user_email);
     	}
     	
