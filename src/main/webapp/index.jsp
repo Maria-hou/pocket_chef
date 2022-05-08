@@ -21,9 +21,13 @@
 	       		<%
 				//can put this code into a separate java file if u want and just include it
 				//this is for if u want the user's name to show up across all pages (would be better to move this code into whatever file handles the tab navigator to reuse the code)
-					Cookie cookies[]=request.getCookies();
-					Boolean loggedin=false;
-					int nameIndex = 0;
+				Cookie cookies[]=null;
+				int nameIndex = 0;
+				Boolean loggedin=false;
+				if (request.getCookies()!=null){
+					 cookies=request.getCookies();
+					
+					
 					for(int i=1; cookies!=null && i<cookies.length; i++)
 					{
 						if(cookies[i].getName() != null)
@@ -35,6 +39,7 @@
 							}
 						}
 					}
+				}
 				%>
 				<%if(cookies.length > 1 && cookies[nameIndex].getValue() != null && nameIndex !=0) { 
 				  	String name = cookies[nameIndex].getValue();
