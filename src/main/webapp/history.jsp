@@ -36,6 +36,8 @@
 					Cookie cookies1[]=request.getCookies();
 					Boolean loggedin=false;
 					int nameIndex = 0;
+					ArrayList<Recipe> recipes = null;
+					String userEmail = null;
 					for(int i=1; cookies1!=null && i<cookies1.length; i++)
 					{
 						if(cookies1[i].getName() != null)
@@ -45,8 +47,16 @@
 								//System.out.println(cookies[i].getValue());
 								nameIndex = i;
 							}
+				        	if((cookies1[i].getName().equals("email"))) {
+								userEmail = cookies1[i].getValue();
+				        	}
 						}
 					}
+					if(userEmail != null){  // if user is logged in then get their past recipes
+						RecipeDataParser dataparser = new RecipeDataParser();
+		        		recipes = dataparser.getPastRecipes(userEmail);
+					}
+
 				%>
 				<%if(cookies1.length > 1 && cookies1[nameIndex].getValue() != null) { 
 				  	String name = cookies1[nameIndex].getValue();
@@ -74,7 +84,7 @@
         	</nav>
         	<!-- RESULTS -->
         	<div class="container" >
-        	<% 
+        	<% if (recipes != null) {
         	for (Recipe r: recipes){%>
 			        		
 			    <br>
@@ -104,7 +114,8 @@
 				</div>
 				
 				<hr>
-        	<% }%>
+        	<% }
+        	}%>
         	
         	</div>
         	  </body>
