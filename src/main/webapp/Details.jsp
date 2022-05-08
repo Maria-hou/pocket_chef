@@ -111,7 +111,7 @@
 				
 				<p style="text-decoration:underline; clear:both; padding-top: 20px;padding-left: 70px;font-size: 20px;color: #5B7C7D;float: left; display: inline-block; font-family: 'Inter', sans-serif;">
 							<% if (newUrl != "") { %>
-							 <a href= <%= newUrl %> style="color: #5B7C7D;">Link to Recipe</a>
+							 <a href= <%= newUrl %> target="_blank" style="color: #5B7C7D;">Link to Recipe</a>
 							 <% } %>
 						</p>
 		</div>
