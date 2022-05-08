@@ -240,7 +240,8 @@ public class RecipeDataParser {
     
     public static ArrayList<Recipe> getPastRecipes(String user_email) {
     	ArrayList<Recipe> recipes = new ArrayList<Recipe>();
-    	String sql = "SELECT recipe_id FROM final_project.past_recipes WHERE user_email = '" + user_email + "';";
+    	String sql = "SELECT recipe_id FROM finalproject.past_recipes WHERE user_email = '" + user_email + "';";
+    	System.out.println(user_email);
     	
     	try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -248,14 +249,10 @@ public class RecipeDataParser {
 			Statement s = conn.createStatement();
 			ResultSet rs = s.executeQuery(sql);
 			
-			if(rs.next()) {
-				while(rs.next()) {
-					String id = rs.getString("recipe_id");
-					//System.out.println(rest_id);
-					recipes.add(getRecipe(id));
-				}
-			}else {
-				return null;
+			while(rs.next()) {
+				String id = rs.getString("recipe_id");
+				//System.out.println(rest_id);
+				recipes.add(getRecipe(id));
 			}
 			
         } catch (ClassNotFoundException e) {
@@ -268,6 +265,7 @@ public class RecipeDataParser {
     	
         if(recipes.isEmpty()) {
         	System.out.println("did not find any past recipes");
+        	return null;
         }
         return recipes;
     }
