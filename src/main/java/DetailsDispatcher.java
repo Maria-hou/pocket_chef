@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import j.RecipeDataParser;
+
 import java.io.IOException;
 import java.io.Serial;
 import java.sql.SQLException;
@@ -47,7 +49,7 @@ public class DetailsDispatcher extends HttpServlet {
         	}
     	}
     	
-    	if(user_email != null) {
+    	if(user_email != null && !RecipeDataParser.checkRecipe(recipe_id)) {
     		j.RecipeDataParser.insertPastRecipe(recipe_id, user_email);
     	}
 	}

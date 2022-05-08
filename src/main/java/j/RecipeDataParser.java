@@ -241,7 +241,6 @@ public class RecipeDataParser {
     public static ArrayList<Recipe> getPastRecipes(String user_email) {
     	ArrayList<Recipe> recipes = new ArrayList<Recipe>();
     	String sql = "SELECT recipe_id FROM finalproject.past_recipes WHERE user_email = '" + user_email + "';";
-    	System.out.println(user_email);
     	
     	try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -268,6 +267,30 @@ public class RecipeDataParser {
         	return null;
         }
         return recipes;
+    }
+    
+    public static Boolean checkRecipe(String recipe_id) {
+    	String sql = "SELECT recipe_id FROM finalproject.past_recipes WHERE recipe_id = '" + recipe_id + "';";
+    	
+    	try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(Constant.DBUrl, Constant.DBUserName, Constant.DBPassword);
+			Statement s = conn.createStatement();
+			ResultSet rs = s.executeQuery(sql);
+			
+			if(rs.next()) {
+				return true;
+			}
+			
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+			// TODO Auto-generated catch block
+        	System.out.println(e.getMessage());
+        	System.out.println("could not find recipes in getPastRecipes function");
+		}
+    	
+    	return false;
     }
 }
 
