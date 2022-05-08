@@ -51,29 +51,29 @@ public class DetailsDispatcher extends HttpServlet {
     		j.RecipeDataParser.insertPastRecipe(recipe_id, user_email);
     	}
     	
-    	System.out.println("IN DETAILS DISPATCHER");
+    	//System.out.println("IN DETAILS DISPATCHER");
     	String nameRes = request.getParameter("name_res");
-    	System.out.println(nameRes);
+    	//System.out.println(nameRes);
     	request.setAttribute("name_res", nameRes);
 
     	String image_url = request.getParameter("image_url");
-    	System.out.println(image_url);
+    	//System.out.println(image_url);
     	request.setAttribute("image_url", image_url);
     	
     	String filters= request.getParameter("cats");
-    	System.out.println(filters);
+    	//System.out.println(filters);
     	request.setAttribute("cats", filters);
     	
     	String ingredients = request.getParameter("ingredients");
-    	System.out.println(ingredients);
+    	//System.out.println(ingredients);
     	request.setAttribute("ingredients", ingredients);
     	
     	String steps = request.getParameter("steps");
-    	System.out.println(steps);
+    	//System.out.println(steps);
     	request.setAttribute("steps", steps);
     	
     	String urlToWebsite = request.getParameter("url");
-    	System.out.println(urlToWebsite);
+    	//System.out.println(urlToWebsite);
     	request.setAttribute("urlToWebsite", urlToWebsite);
     	
     	   	
