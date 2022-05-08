@@ -6,8 +6,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import j.RecipeDataParser;
-
 import java.io.IOException;
 import java.io.Serial;
 import java.sql.SQLException;
@@ -49,9 +47,45 @@ public class DetailsDispatcher extends HttpServlet {
         	}
     	}
     	
-    	if(user_email != null && !RecipeDataParser.checkRecipe(recipe_id)) {
+    	if(user_email != null) {
     		j.RecipeDataParser.insertPastRecipe(recipe_id, user_email);
     	}
+    	
+    	System.out.println("IN DETAILS DISPATCHER");
+    	String nameRes = request.getParameter("name_res");
+    	System.out.println(nameRes);
+    	request.setAttribute("name_res", nameRes);
+
+    	String image_url = request.getParameter("image_url");
+    	System.out.println(image_url);
+    	request.setAttribute("image_url", image_url);
+    	
+    	String filters= request.getParameter("cats");
+    	System.out.println(filters);
+    	request.setAttribute("cats", filters);
+    	
+    	String ingredients = request.getParameter("ingredients");
+    	System.out.println(ingredients);
+    	request.setAttribute("ingredients", ingredients);
+    	
+    	String steps = request.getParameter("steps");
+    	System.out.println(steps);
+    	request.setAttribute("steps", steps);
+    	
+    	String urlToWebsite = request.getParameter("url");
+    	System.out.println(urlToWebsite);
+    	request.setAttribute("urlToWebsite", urlToWebsite);
+    	
+    	   	
+//		 request.setAttribute("name", nameRest);
+//		 request.setAttribute("category", cat);
+//		 request.setAttribute("image", image_url);
+//		 request.setAttribute("price", price);
+//		 request.setAttribute("rating", rating);
+//		 request.setAttribute("address", address);
+		 request.getRequestDispatcher("/Details.jsp").forward(request, response);
+    	
+    	
 	}
 
 }
