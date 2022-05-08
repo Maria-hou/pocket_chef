@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1" import="Recipe, RecipeDataParser, java.util.ArrayList" %>
+         pageEncoding="ISO-8859-1" import="j.Recipe, j.RecipeDataParser, java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +26,7 @@
 				System.out.println("Smth wrong with the past recipe form, cookies no info");
         	}
         	else {
-        		recipes = RecipeDataParser.getPastRecipes(user_email); //THIS ARRAY CAN BE USED TO DISPLAY THE PASR RECIPE RESULTS
+        		recipes = j.RecipeDataParser.getPastRecipes(user_email); //THIS ARRAY CAN BE USED TO DISPLAY THE PASR RECIPE RESULTS
         	}
         //TODO check if logged in
     %>

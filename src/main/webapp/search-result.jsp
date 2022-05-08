@@ -143,11 +143,13 @@ img {
 	    		{
 	    			if(aCookie.getName().equals("ingredients")) {
 	    				String temp = aCookie.getValue();
-	    				ingredients = temp.replace("=", ",");
+	    				ingredients = temp.replace("=", "");
 	    				ingredients = ingredients.replace("*", " ");
 	    			}
 	    			else if(aCookie.getName().equals("filters")) {
-	    				filters = aCookie.getValue();
+	    				String temp = aCookie.getValue();
+	    				filters = temp.replace("=", "");
+	    				filters = filters.replace("*", " ");
 	    			}
 	        	}
         	}
@@ -230,12 +232,12 @@ img {
 				</div>
 				
 				<div class = "checkboxes"> 
-					<input type="checkbox" name="filters" value="vegetarian" style = "color: #5B7C7D"/> <label> Vegetarian </label>
-					<input type="checkbox" name="filters" value="vegan" /> <label> Vegan </label>
-					<input type="checkbox" name="filters" value="gluten" /> <label> Gluten-Free </label>
+					<input type="checkbox" name="vegetarian" value="vegetarian" style = "color: #5B7C7D"/> <label> Vegetarian </label>
+					<input type="checkbox" name="vegan" value="vegan" /> <label> Vegan </label>
+					<input type="checkbox" name="pesc" value="pescatarian" /> <label> Pescatarian </label>
 					<br> <br>
-					<input type="checkbox" name="filters" value="asian" style = "color: #5B7C7D"/> <label> Asian </label>
-					<input type="checkbox" name="filters" value="Mediterranean" /> <label> Mediterranean </label>
+					<input type="checkbox" name="asian" value="asian" style = "color: #5B7C7D"/> <label> Asian </label>
+					<input type="checkbox" name="mediterra" value="Mediterranean" /> <label> Mediterranean </label>
 				</div>
      			 
         		
