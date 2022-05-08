@@ -294,16 +294,51 @@ img {
 				<div class=format>
 				<!--  TO BE CHANGED -->
 						<form action="DetailsDispatcher" method="GET"> 
+						<% System.out.println(r.getProducts());
+							String ing = r.getProducts();
+							String ingNew = "";
+							if(ing != null)
+							{
+								ingNew = ing.replace(" ", "=");
+							}
+							String res = r.getNameOfRecipe();
+								String resNew = "";
+							if(res != null)
+							{
+								resNew = res.replace(" ", "=");
+							}
+							String cats = r.getCategories();
+							String newCats = "";
+							if(cats != null)
+							{
+								newCats = cats.replace(" ", "=");
+							}
+						String instructions = r.getInstructions();
+						System.out.println(instructions);
+						String newInstructions = "";
+						if(instructions != null)
+						{
+							newInstructions = instructions.replace(" ", "=");
+							
+						}
+						String url = r.getUrl();
+						System.out.println(url);
+						String newurl = "";
+						if(url != null)
+						{
+							newurl = url.replace(" ", "=");
+						}
+						
+						%>
 							<button value=<%=r.getId()%> name="recipe_id" action="DetailsDispatcher" method="GET" style="font-size: 14px; font-family: 'Inter', sans-serif; color: #5B7C7D; background: none; border: none;padding: 0;text-decoration: underline; padding-left: 20px;" >
-							
+							<%= r.getNameOfRecipe() %>
 							</button>
-							<input style="display:none; padding-left:50px; "  name ="ingredients" value="<%=r.getProducts()%>" >
-							
-							<!-- <input style="display:none;" name="price" value="${restaurant.price}"> 
-							<input style="display:none;" name="rating" value="${restaurant.rating}"> 
-							<input style="display:none;" name="address" value="${restaurant.address}"> 
-							<input style="display:none;" name="cat" value="${restaurant.cat}"> 
-							<input style="display:none;" name="phone" value="${restaurant.phone}"> -->
+							<input style="display:none;" name="name_res" value=<%= resNew %>>
+							  <input style="display:none;" name="image_url" value=<%= r.getImageUrl() %>>
+							   <input style="display:none;" name="cats" value=<%= newCats %>>
+							    <input style="display:none;" name="ingredients" value=<%= ingNew %>>
+							     <input style="display:none;" name="steps" value=<%= newInstructions %>>
+							      <input style="display:none;" name="url" value=<%= newurl %>>
 						</form>
 						</div>
 				
